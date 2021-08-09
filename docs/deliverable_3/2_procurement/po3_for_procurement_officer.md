@@ -126,3 +126,14 @@ End.
 ![](img/wa_send_email_2.png)
 
 End.
+
+-----------------------------------------------------------------
+
+## สร้างใบแจ้งหนี้ (Vendor Bill) จาก PO
+
+**Menu ::** Purchase > Orders > Purchase Orders
+
+1. เลือก Purchase Order ที่ผ่านการอนุมัติแล้วที่ต้องการสร้างเอกสารใบแจ้งหนี้ Vendor Bill
+2. กดปุ่ม Create Bill ระบบจะมีให้เลือก Work Acceptance
+![](img/create_vendor_bill.png)
+3. คลิก Create Vendor Bill ระบบจะสร้าง Vendor Bill และเจ้าหน้าที่บัญชีจะตั้งหนี้และจ่ายเงินต่อไป
