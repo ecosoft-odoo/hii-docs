@@ -24,7 +24,9 @@ nav:  # Content organization
         - Procurement Process » System Config: deliverable_3/2_procurement/po2_config.md
         - Procurement Process » Procurement Officer (เริ่มต้น): deliverable_3/2_procurement/po3_for_procurement_officer.md
         - Procurement Process » Procurement Officer (ส่วนเพิ่ม): deliverable_3/2_procurement/po4_for_procurement_officer.md
-        - Procurement Process » Procurement Officer (Paperless WA): deliverable_3/2_procurement/po5_for_procurement_officer.md
+        - Procurement Process » Procurement Officer (วัสดุเข้าคลัง): deliverable_3/2_procurement/po5_for_procurement_officer.md
+        - Procurement Process » Procurement Officer (Paperless WA): deliverable_3/2_procurement/po6_for_procurement_officer.md
+        - Procurement Process » จัดซื้อจัดจ้างวงเงินเล็กน้อย: deliverable_3/2_procurement/po7_for_procurement_officer.md
 markdown_extensions:
     - toc:  # For link for hearders, H1, H2, etc.
         permalink: "#"  
