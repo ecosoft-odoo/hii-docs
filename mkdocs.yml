@@ -16,17 +16,24 @@ nav:  # Content organization
         - Budget Approver: deliverable_2/1_budget/bg5_for_approver.md
     - "[[Deliverable 3 - Procurement]]":
         - Overview: deliverable_3/index.md
-        - Purchase Request » Overview: deliverable_3/1_purchase_request/pr1_overview.md
-        - Purchase Request » System Config: deliverable_3/1_purchase_request/pr2_config.md
-        - Purchase Request » Employee: deliverable_3/1_purchase_request/pr3_for_employee.md
-        - Purchase Request » Procurement Head: deliverable_3/1_purchase_request/pr4_for_procurement_head.md
-        - Procurement Process » Overview: deliverable_3/2_procurement/po1_overview.md
-        - Procurement Process » System Config: deliverable_3/2_procurement/po2_config.md
-        - Procurement Process » Procurement Officer (เริ่มต้น): deliverable_3/2_procurement/po3_for_procurement_officer.md
-        - Procurement Process » Procurement Officer (ส่วนเพิ่ม): deliverable_3/2_procurement/po4_for_procurement_officer.md
-        - Procurement Process » Procurement Officer (วัสดุเข้าคลัง): deliverable_3/2_procurement/po5_for_procurement_officer.md
-        - Procurement Process » Procurement Officer (Paperless WA): deliverable_3/2_procurement/po6_for_procurement_officer.md
-        - Procurement Process » จัดซื้อจัดจ้างวงเงินเล็กน้อย: deliverable_3/2_procurement/po7_for_procurement_officer.md
+    - "Purchase Request":
+        - Overview: deliverable_3/1_purchase_request/pr1_overview.md
+        - System Config: deliverable_3/1_purchase_request/pr2_config.md
+        - Employee: deliverable_3/1_purchase_request/pr3_for_employee.md
+        - Procurement Head: deliverable_3/1_purchase_request/pr4_for_procurement_head.md
+    - "Procurement Process":
+        - Overview: deliverable_3/2_procurement/po1_overview.md
+        - System Config: deliverable_3/2_procurement/po2_config.md
+        - Procurement Officer (เริ่มต้น): deliverable_3/2_procurement/po3_for_procurement_officer.md
+        - Procurement Officer (ส่วนเพิ่ม): deliverable_3/2_procurement/po4_for_procurement_officer.md
+        - Procurement Officer (วัสดุเข้าคลัง): deliverable_3/2_procurement/po5_for_procurement_officer.md
+        - Procurement Officer (Paperless WA): deliverable_3/2_procurement/po6_for_procurement_officer.md
+        - จัดซื้อจัดจ้างวงเงินเล็กน้อย: deliverable_3/2_procurement/po7_for_procurement_officer.md
+    - "Stock Request":
+        - Overview: deliverable_3/3_stock_request/sr1_overview.md
+        - System Config: deliverable_3/3_stock_request/sr2_config.md
+        - Stock Request User: deliverable_3/3_stock_request/sr3_for_user.md
+        - Stock Request Manager: deliverable_3/3_stock_request/sr4_for_manager.md
 markdown_extensions:
     - toc:  # For link for hearders, H1, H2, etc.
         permalink: "#"  
