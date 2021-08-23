@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Budget User - Odoo for HII</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Budget User";
+    var mkdocs_page_input_path = "deliverable_2/1_budget/bg3_for_user.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../../../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../../../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="../../../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Odoo for HII</a>
+<div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">[[Deliverable 2 - Budgeting]]</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bg1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bg2_config/">System Config</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Budget User</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#_1">กระบวนการวางแผนการใช้จ่ายงบประมาณ</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#excel">การวางแผนการใช้จ่ายงบประมาณบน Excel</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_2">การวางแผนการใช้งบประมาณบนระบบ</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_3">กระบวนการโอนงบประมาณ</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#_4">การหยุดใช้งบประมาณบนระบบ</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#budget-transfer">การสร้างเอกสาร Budget Transfer</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_5">การแก้ไขแผนการใช้จ่าย หลังจากโอนงบประมาณเสร็จสิ้น</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bg4_for_manager/">Budget Manager</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bg5_for_approver/">Budget Approver</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">[[Deliverable 3 - Procurement]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/">Overview</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Purchase Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/1_purchase_request/pr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/1_purchase_request/pr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/1_purchase_request/pr3_for_employee/">Employee</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/1_purchase_request/pr4_for_procurement_head/">Procurement Head</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Procurement Process</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po3_for_procurement_officer/">Procurement Officer (เริ่มต้น)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po4_for_procurement_officer/">Procurement Officer (ส่วนเพิ่ม)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po5_for_procurement_officer/">Procurement Officer (วัสดุเข้าคลัง)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po6_for_procurement_officer/">Procurement Officer (Paperless WA)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po7_for_procurement_officer/">จัดซื้อจัดจ้างวงเงินเล็กน้อย</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Stock Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/3_stock_request/sr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/3_stock_request/sr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/3_stock_request/sr3_for_user/">Stock Request User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/3_stock_request/sr4_for_manager/">Stock Request Manager</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Odoo for HII</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="../../..">Docs</a> »</li>
+<li>[[Deliverable 2 - Budgeting]] »</li>
+<li>Budget User</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/edit/master/docs/deliverable_2/1_budget/bg3_for_user.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="budgeting-management-system">ระบบบริหารงบประมาณ (Budgeting Management System)<a class="headerlink" href="#budgeting-management-system" title="Permanent link">#</a></h1>
+<p><strong>เอกสารนี้สำหรับ ::</strong> พนักงานทั่วไป (Budget User)</p>
+<h2 id="_1">กระบวนการวางแผนการใช้จ่ายงบประมาณ<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<h3 id="excel">การวางแผนการใช้จ่ายงบประมาณบน Excel<a class="headerlink" href="#excel" title="Permanent link">#</a></h3>
+<p>หลังจากที่ฝ่ายแผน ทำการสร้างงบประมาณในระบบแล้ว ทางฝ่ายแผน จะส่งไฟล์ Excel ให้กับผู้รับผิดชอบงบประมาณตาม Analytic Account ซึ่งผู้รับผิดชอบจะต้องทำการวางแผนงบประมาณของปีนั้น ๆ ให้ถูกต้อง ครบถ้วนตามงบประมาณที่ได้รับ จากนั้น Save แล้วส่งไฟล์ Excel ที่ทำการวางแผนเรียบร้อยแล้วคืนให้กับฝ่ายแผน</p>
+<p>รายละเอียดการกรอกข้อมูลการวางแผนบน Excel</p>
+<ol>
+<li>เลือก Activity Group: กิจกรรมที่ผู้ใช้งานต้องการวางแผนการใช้จ่ายงบประมาณ</li>
+<li>กรอกตัวเลข ตามแผนการที่วางไว้ตามแต่ละเดือน </li>
+<li>ยอดรวมงบประมารที่วางแผน (N:7) จะต้องเท่ากับ Released (K:4)</li>
+</ol>
+<p><img alt="วางแผนบน excel" src="../img/3_phasing_plan/excel_plan.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>การ Copy ข้อมูลจากที่อื่นมาลงใน Excel จะต้องระวังเรื่องตัวอักษร การเว้นวรรค และอื่น ๆ ที่อาจะทำให้ชื่อที่ copy มากับในระบบไม่ตรงกัน แล้วระบบจะไม่สามารถ Import ข้อมูลนั้นเข้าไปได้</p>
+</div>
+<p><strong>สิ้นสุดการกรอกข้อมูลการวางแผนใน Excel</strong></p>
+<h3 id="_2">การวางแผนการใช้งบประมาณบนระบบ<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Control Sheet</p>
+<ol>
+<li>เลือก Budget Control Sheet ที่ต้องการวางแผนงบประมาณ</li>
+<li>
+<p>กดปุ่ม "Edit" เพื่อแก้ไขข้อมูล</p>
+<ol>
+<li>ไปที่ Tab Reset Options: ใช้สำหรับการควบคุมการสร้าง Activity Group</li>
+<li>เลือก Activity Group ทั้งหมดที่ต้องการวางแผนการใช้จ่ายงบประมาณ</li>
+<li>ตรวจสอบข้อมูล ถูกต้องครบถ้วน กด "Save"</li>
+</ol>
+<p><img alt="choose ag" src="../img/3_phasing_plan/reset_option.png"/></p>
+</li>
+<li>
+<p>วางแผนการใช้จ่ายลงในตาราง ซึ่งมีขั้นตอนดังนี้</p>
+<ol>
+<li>ไปที่ Tab Plan</li>
+<li>กดปุ่ม "Reset Plan" เพื่อให้ระบบสร้างข้อมูลสำหรับการวางแผนการใช้จ่ายงบประมาณ</li>
+<li>กดปุ่ม "Edit" เพื่อที่จะสามารถแก้ไขตัวเลขข้อมูลการวางแผนได้</li>
+<li>กรอกตัวเลข วางแผนการใช้จ่ายลงในตาราง</li>
+</ol>
+<p><img alt="" src="../img/3_phasing_plan/phasing.png"/></p>
+</li>
+<li>
+<p>ตรวจสอบยอดรวมของเงินที่วางแผน จะต้องเท่ากับ Released (ยอดเงินที่ใช้ได้ปัจจุบัน)
+    <img alt="" src="../img/3_phasing_plan/release_amount.png"/></p>
+</li>
+<li>
+<p>หากต้องการเพิ่ม Activity Group</p>
+<ol>
+<li>ไปที่ Tab Reset Options</li>
+<li>เลือก Activity Group ที่ต้องการเพิ่ม</li>
+<li>ไปที่ Tab Plan จากนั้นกดปุ่ม "Refresh"</li>
+</ol>
+</li>
+<li>
+<p>ตรวจสอบข้อมูล ถูกต้องครบถ้วน </p>
+<ol>
+<li>กด "Save" เพื่อบันทึกข้อมูล</li>
+<li>หากต้องการแก้ไข กดปุ่ม "Edit"</li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Smart Button บน Budget Control Sheet</p>
+<p>ที่หน้า Budget Control Sheet (Form View) จะมี Smart Button 2 ปุ่ม
+<img alt="" src="../img/5_budget_transfer/smart_button.png"/></p>
+<ol>
+<li>
+<p><strong>Monitoring:</strong> แสดงการใช้จ่ายงบประมาณ
+<img alt="" src="../img/5_budget_transfer/monitoring.png"/></p>
+</li>
+<li>
+<p><strong>Transferred:</strong> แสดงรายละเอียดการโอนงบประมาณที่เกิดขึ้น</p>
+<ol>
+<li>รายละเอียดของผู้โอนงบประมาณ</li>
+<li>รายละเอียดผู้รับงบประมาณ</li>
+<li>ยอดงบประมาณที่ถูกโอน</li>
+</ol>
+</li>
+</ol>
+<p><img alt="" src="../img/5_budget_transfer/transfer3.png"/></p>
+</div>
+<hr/>
+<h2 id="_3">กระบวนการโอนงบประมาณ<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">สามารถใช้กับ Use Cases</p>
+<ul>
+<li>(3) การโอนเงินออกจาก Analytic Account ที่ถูก Extend</li>
+</ul>
+</div>
+<p>ผู้ให้และผู้รับงบประมาณ มีการตกลงกันว่าต้องการโอนงบประมาณ จากนั้นจึงเริ่มการทำงานในระบบ โดยเริ่มจาก</p>
+<ol>
+<li>หยุดการใช้งบประมาณบนระบบ</li>
+<li>การสร้างเอกสาร Budget Transfer</li>
+<li>แก้ไขแผนการใช้จ่าย หลังจากโอนงบประมาณเสร็จสิ้น</li>
+</ol>
+<h3 id="_4">การหยุดใช้งบประมาณบนระบบ<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
+<p>ทั้งผู้ให้และผู้รับงบประมาณ เข้าระบบเพื่อหยุดการใช้งบประมาณของตนเอง โดยทำตามขั้นตอน ดังนี้</p>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Control Sheet</p>
+<ol>
+<li>เข้าไปที่หน้า Budget Control Sheet ของตนเอง ระบบแสดงสถานะของ Budget Control Sheet เป็น Control</li>
+<li>กดปุ่ม Reset to Draft เปลี่ยนสถานะเอกสารจาก Control เป็น Draft เพื่อหยุดการเบิกใช้งบประมาณ</li>
+</ol>
+<p><img alt="draft" src="../img/5_budget_transfer/draft.png"/></p>
+<h3 id="budget-transfer">การสร้างเอกสาร Budget Transfer<a class="headerlink" href="#budget-transfer" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Transfer</p>
+<ol>
+<li>
+<p>กดปุ่ม "Create" เพื่อสร้างเอกสาร
+    <img alt="create" src="../img/5_budget_transfer/create.png"/></p>
+</li>
+<li>
+<p>กดปุ่ม "Add a line" เพื่อกรอกรายละเอียด ดังนี้</p>
+<ol>
+<li>Source: เลือกผู้ให้งบประมาณ</li>
+<li>Source Analytic Tags: เลือก Tags ที่มี โดยระบบจะดึงค่าตั้งต้นให้ หาก Analytic Account นั้นมี Tags อย่างละ 1 ตัว</li>
+<li>Source Fund: แหล่งงบประมาณ</li>
+<li>Available: ยอดงบประมาณคงเหลือ</li>
+<li>Target: ผู้รับงบประมาณ</li>
+<li>Target Analytic Tags: เลือก Tags ที่มี โดยระบบจะดึงค่าตั้งต้นให้ หาก Analytic Account นั้นมี Tags อย่างละ 1 ตัว</li>
+<li>Target Fund: แหล่งงบประมาณ</li>
+<li>Available: ยอดงบประมาณคงเหลือ</li>
+<li><strong>Transfer Amount: ยอดงบประมาณที่ต้องการโอน</strong></li>
+</ol>
+<p><img alt="" src="../img/5_budget_transfer/transfer2.png"/></p>
+</li>
+<li>
+<p>ตรวจสอบข้อมูล หากถูกต้องครบถ้วนกดปุ่ม "Save" หากต้องการแก้ไขกดปุ่ม "Edit"</p>
+</li>
+<li>
+<p>กดปุ่ม "Submit" ระบบจะส่งเอกสารเพื่อขออนุมัติการโอนงบประมาณ</p>
+<ul>
+<li>สถานะเอกสารเปลี่ยนจาก Draft เป็น Submit</li>
+</ul>
+<p><img alt="" src="../img/5_budget_transfer/submit.png"/></p>
+<ul>
+<li>Tab Review จะแสดงสถานะการอนุมัติ</li>
+</ul>
+<p><img alt="" src="../img/5_budget_transfer/review.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>หากฝ่ายแผนพิจารณาให้โอนงบประมาณได้ ระบบจะส่งเอกสารอนุมัติตามลำดับ
+<img alt="" src="../img/5_budget_transfer/approved.png"/></p>
+</div>
+</li>
+<li>
+<p>เมื่อได้รับการอนุมัติครบถ้วนแล้ว เอกสารจะเปลี่ยนสถานะจาก Sunmitted เป็น Transfered
+    <img alt="" src="../img/5_budget_transfer/done.png"/></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>หากยังไม่มี Analytic Tags ในระบบ ให้แจ้งฝ่ายแผนให้ใส่ Analytic Tags ในระบบ</p>
+</div>
+<h3 id="_5">การแก้ไขแผนการใช้จ่าย หลังจากโอนงบประมาณเสร็จสิ้น<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<p>เมื่อทำการโอนงบประมาณเสร็จสิ้น ทั้งผู้ให้และผู้รับงปบระมาณ จะต้องวางแผนการใช้จ่ายใหม่ ตามกรอบงบประมาณที่เปลี่ยนแปลงไปจากการโอนงบประมาณ</p>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Control Sheet</p>
+<p><strong>ผู้ให้งบประมาณ</strong></p>
+<ol>
+<li>
+<p>ผู้ให้งบประมาณ เมื่อโอนงบประมาณสำเร็จ กรอบงบประมาณ Release จะลดลงตามยอดงบประมาณที่โอน</p>
+<ul>
+<li>Allocate: กรอบงบประมาณที่ได้รับการจัดสรรจากฝ่ายแผน</li>
+<li>Release: กรอบงบประมาณล่าสุด</li>
+<li>Diff: ผลต่างระหว่าง Release กับ ผลรวมงบประมาณที่วางแผนในปัจจุบัน</li>
+</ul>
+</li>
+<li>
+<p>กดปุ่ม "Edit" เพื่อวางแผนการใช้จ่ายงบประมาณใหม่
+    <img alt="" src="../img/5_budget_transfer/source1.png"/></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ระบบไม่อนุญาติให้วางแผนการใช้จ่ายเดือนในอดีต
+หากวางแผนการใช้จ่ายส่วนใหญ่อยู่ในอดีตจะไม่สามารถแก้ไขได้ ให้วางแผนแบบ ติดลบ เพื่อให้ผลรวมงบประมาณเท่ากับ Release</p>
+</div>
+<ol>
+<li>เมื่อแก้ไขแผนการใช้จ่ายเสร็จสิ้น กดปุ่ม "Save" เพื่อบันทึกข้อมูล</li>
+<li>กดปุ่ม "Submit" และ "Control" เพื่อเริ่มการใช้จ่ายงบประมาณอีกครั้ง</li>
+</ol>
+<p><strong>ผู้รับงบประมาณ</strong></p>
+<ol>
+<li>
+<p>ผู้รับงบประมาณ เมื่อโอนงบประมาณสำเร็จ กรอบงบประมาณ Release จะเพิ่มขึ้นตามยอดงบประมาณที่โอน</p>
+<ul>
+<li>Allocate: กรอบงบประมาณที่ได้รับการจัดสรรจากฝ่ายแผน</li>
+<li>Release: กรอบงบประมาณล่าสุด</li>
+<li>Diff: ผลต่างระหว่าง Release กับ ผลรวมงบประมาณที่วางแผนในปัจจุบัน</li>
+</ul>
+</li>
+<li>
+<p>กดปุ่ม "Edit" เพื่อวางแผนการใช้จ่ายงบประมาณใหม่
+    <img alt="" src="../img/5_budget_transfer/target2.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ระบบไม่อนุญาติให้วางแผนการใช้จ่ายเดือนในอดีต หากวางแผนการใช้จ่ายส่วนใหญ่อยู่ในอดีตจะไม่สามารถแก้ไขได้ ให้วางแผนแบบ ติดลบ เพื่อให้ผลรวมงบประมาณเท่ากับ Release</p>
+</div>
+</li>
+<li>
+<p>เมื่อแก้ไขแผนการใช้จ่ายเสร็จสิ้น กดปุ่ม "Save" เพื่อบันทึกข้อมูล</p>
+</li>
+<li>กดปุ่ม "Submit" และ "Control" เพื่อเริ่มการใช้จ่ายงบประมาณอีกครั้ง</li>
+</ol>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../bg4_for_manager/" title="Budget Manager">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../bg2_config/" title="System Config"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+<p>Copyright © 2021 Ecosoft Co., Ltd.</p>
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../bg2_config/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../bg4_for_manager/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '../../..';</script>
+<script defer="" src="../../../js/theme_extra.js"></script>
+<script defer="" src="../../../js/theme.js"></script>
+<script defer="" src="../../../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

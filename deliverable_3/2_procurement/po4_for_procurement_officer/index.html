@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Procurement Officer (ส่วนเพิ่ม) - Odoo for HII</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Procurement Officer (\u0e2a\u0e48\u0e27\u0e19\u0e40\u0e1e\u0e34\u0e48\u0e21)";
+    var mkdocs_page_input_path = "deliverable_3/2_procurement/po4_for_procurement_officer.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../../../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../../../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="../../../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Odoo for HII</a>
+<div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">[[Deliverable 2 - Budgeting]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg3_for_user/">Budget User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg4_for_manager/">Budget Manager</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg5_for_approver/">Budget Approver</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">[[Deliverable 3 - Procurement]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Purchase Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr3_for_employee/">Employee</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr4_for_procurement_head/">Procurement Head</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Procurement Process</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../po1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po3_for_procurement_officer/">Procurement Officer (เริ่มต้น)</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Procurement Officer (ส่วนเพิ่ม)</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#invoice-plan-installment">กรณีเงินงวด (Invoice Plan Installment)</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#wa-invoice-plan">การสร้างเอกสารตรวจรับ WA กรณีใช้ Invoice Plan</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#te-guarantee-e-bidding">หลักประกันซอง (TE Guarantee กรณี e-Bidding)</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#guarantee-po">หลักประกันสัญญา (Guarantee ที่ PO)</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#retention">เงินประกันผลงาน (Retention)</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_2">กรณีคืนเงินประกันผลงาน และต้องวางหลักประกัน</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#invoice-plan-deposit">กรณีเงินงวดแบบมีเงินมัดจำ (Invoice Plan + Deposit)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po5_for_procurement_officer/">Procurement Officer (วัสดุเข้าคลัง)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po6_for_procurement_officer/">Procurement Officer (Paperless WA)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po7_for_procurement_officer/">จัดซื้อจัดจ้างวงเงินเล็กน้อย</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Stock Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr3_for_user/">Stock Request User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr4_for_manager/">Stock Request Manager</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Odoo for HII</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="../../..">Docs</a> »</li>
+<li>Procurement Process »</li>
+<li>Procurement Officer (ส่วนเพิ่ม)</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/edit/master/docs/deliverable_3/2_procurement/po4_for_procurement_officer.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="_1">กระบวนการจัดซื้อจัดจ้าง (ส่วนเพิ่ม)<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p>กระบวนการเพิ่มเติม สำหรับกรณีจัดซื้อจัดจ้างแยกหัวข้อเป็นเรื่องๆ ดังนี้</p>
+<ul>
+<li>กรณีเงินงวด (Invoice Plan Installment)</li>
+<li>การสร้างเอกสารตรวจรับ (WA) กรณีมีเงินงวด (Invoice Plan)</li>
+<li>หลักประกันซอง (TE Guarantee กรณี e-Bidding)</li>
+<li>หลักประกันสัญญา (RFQ Guarantee)</li>
+<li>เงินประกันผลงาน (Retention)</li>
+<li>กรณีเงินงวดแบบมีเงินมัดจำ (Invoice Plan + 1st Deposit)</li>
+</ul>
+<p><strong>เอกสารนี้สำหรับ ::</strong> เจ้าหน้าที่พัสดุ (Procurement Officer)</p>
+<hr/>
+<h2 id="invoice-plan-installment">กรณีเงินงวด (Invoice Plan Installment)<a class="headerlink" href="#invoice-plan-installment" title="Permanent link">#</a></h2>
+<p>เงินงวดหมายถึงการวางแผนการซื้อโดยแบ่งจ่ายเป็นงวดๆ ระบบจะใช้ตาราง Invoice Plan ในการเก็บสัดส่วนการจ่ายในแต่ละงวด</p>
+<p><strong>Menu ::</strong> Purchase &gt; Orders &gt; Requests for Quotation</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>การบันทึกเงินงวด จะบันทึกที่ RFQ ใบเสนอราคาจากผู้ขาย/ผู้ให้บริการที่ได้รับการคัดเลือกสถานะ Draft</li>
+<li>Ref: <a href="../po3_for_procurement_officer/#rfq-purchase-agreementte">สร้างใบเสนอราคา RFQ (จาก Purchase Agreement/TE)</a></li>
+</ul>
+</div>
+<ol>
+<li>
+<p>สร้าง Invoice Plan</p>
+<ol>
+<li>กดปุ่มเพื่อ Edit RFQ, และเลือก Use Invoice Plan เพื่อเปิดการใช้งาน Invoice Plan</li>
+<li>คลิกลิงค์ Create Invoice Plan เพื่อเปิด Wizard</li>
+<li>Number of installment: เลือกจำนวนงวดการแบ่งจ่ายที่ต้องการ</li>
+<li>Installment Date: เลือกวันที่การจ่ายงวดแรก</li>
+<li>Interval: เลือกช่วงเวลาระหว่างงวด (เป็นแค่ตัวช่วย)</li>
+<li>กดปุ่ม Create Invoice Plan เพื่อสร้างตารางการแบ่งจ่าย
+        <img alt="" src="../img/ip_create_invoice_plan.png"/></li>
+</ol>
+</li>
+<li>
+<p>ปรับรายละเอียดตาราง Invoice Plan</p>
+<ol>
+<li>Installment: แสดงงวดการจ่าย</li>
+<li>Type: ประเภท (Installment/Deposit)</li>
+<li>Percent, Amount: จำนวนเงินในแต่ละงวด
+        <img alt="" src="../img/ip_edit_invoice_plan.png"/></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>สามารถแก้ไข เพิ่ม/ลด ตารางได้ตามต้องการในสถานะเอกสาร Draft</li>
+<li>แต่ยอดรวม % ต้องเท่ากับ 100 เสมอ</li>
+</ul>
+</div>
+</li>
+</ol>
+<p>End.</p>
+<hr/>
+<h2 id="wa-invoice-plan">การสร้างเอกสารตรวจรับ WA กรณีใช้ Invoice Plan<a class="headerlink" href="#wa-invoice-plan" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase &gt; Orders &gt; Purchase Orders</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>ขั้นตอนนี้สำหรับ Purchase Order ที่อนุมัติแล้ว (Approved) และมีการใช้ Invoice Plan</li>
+<li>การตรวจรับ WA จะถูกบังคับสร้างตามงวดที่วางไว้ที่ Invoice Plan (Create WA by Installment)</li>
+</ul>
+</div>
+<ol>
+<li>
+<p>จาก Purchase Order ทำการสร้างเอกสารตรวจรับ WA</p>
+<ol>
+<li>กดปุ่ม Create WA by Installment ระบบจะเปิด Wizard</li>
+<li>เลือกงวด Installment ที่ต้องการสร้าง WA
+        <img alt="" src="../img/ip_create_wa_by_installment.png"/></li>
+<li>กดปุ่ม Create WA ระบบจะพาไปยังเอกสาร WA ที่สร้างขึ้น</li>
+<li>จะเห็นว่า Quantity บน WA จะเป็นไปตามสัดส่วนของ Installment ที่เลือกโดยอัตโนมัติ
+        <img alt="" src="../img/ip_wa_created_by_installment.png"/></li>
+</ol>
+</li>
+<li>
+<p>ทำการอนุมัติ / ประเมิน / ค่าปรับ เอกสาร WA นี้ตามปกติ</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>เอกสาร WA ที่อนุมัติแล้ว จะถูกใช้ในการควบคุมการรับวัสดุ และการสร้างใบแจ้งหนี้ตามปกติต่อไป</li>
+</ul>
+</div>
+</li>
+</ol>
+<p>End.</p>
+<hr/>
+<h2 id="te-guarantee-e-bidding">หลักประกันซอง (TE Guarantee กรณี e-Bidding)<a class="headerlink" href="#te-guarantee-e-bidding" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase &gt; Orders &gt; Purchase Agreements</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>กรณี e-Bidding จะมีการวางหลักประกันซองของทุกผู้ที่ยื่นซองประกวดราคา</li>
+<li>เจ้าหน้าที่พัสดุบันทึกหลักประกันซองที่ TE (ข้อ 1)</li>
+<li>การบันทึกหลักประกันซองและการคืนหลักประกันเมื่อประกาศผลการประกวดราคา ดำเนินการโดยการเงินบัญชี</li>
+</ul>
+</div>
+<ol>
+<li>ที่ TE สร้าง Guarantee ประเภท หลักประกันซอง<ol>
+<li>กดปุ่ม "Guarantee"
+  <img alt="" src="../img/te_create_guarantee.png"/></li>
+<li>กดปุ่ม Create เพื่อสร้าง Guarantee สำหรับ TE นี้
+  <img alt="" src="../img/te_create_guarantee2.png"/></li>
+<li>กรอกรายละเอียดของ Guarantee
+  <img alt="" src="../img/te_guarantee_detail.png"/>
+        1. Guarantee Number: หมายเลขอ้างอิงของหลักประกัน (ใช้ในการสื่อสารกับฝ่ายบัญชี)<br/>
+        2. Reference: เลขที่เอกสารต้นทาง<br/>
+        3. Guarantee Method: อ้างอิงหลักประกัน ในที่นี้จะเป็นหลักประกันซอง<br/>
+        4. Partner: ชื่อผู้เสนอราคา<br/>
+        5. Guarantee Type: ประเภทของหลักประกัน เช่น เช็ค พันธบัตรรัฐบาลไทย<br/>
+        6. Amount: เงินสำหรับหลักประกัน<br/>
+        7. Guarantee Receive Date: วันที่ได้รับหลักประกัน<br/>
+        8. Document Ref: อ้างอิงเอกสารหลักประกัน<br/>
+        9. Guarantee Due Date: วันที่ครบกำหนดคืนหลักประกัน<br/>
+        10. Invoice Ref: อ้างอิงเลขที่ Customer Invoice<br/>
+        11. Bill Ref: อ้างอิงเลขที่ Vendor Bill<br/>
+        12. Return Date: วันที่คืนหลักประกัน<br/>
+        13. Note: บันทึกรายละเอียดเพิ่มเติมสำหรับหลักประกัน<br/></li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>ในตัวอย่างนี้ไม่ต้องให้ฝ่ายบัญชีดำเนินการเรียกเก็บหลักประกัน เพราะเป็นประเภท Thai Government Bond (แต่ต้องอ้างถึงที่ฟิลด์ Document Ref)</li>
+<li>สรุป Guarantee Type ที่ต้องมีการเรียกเก็บเงิน (Create Invoice ?)
+  <img alt="" src="../img/guarantee_type.png"/></li>
+</ul>
+</div>
+<p>End.</p>
+<hr/>
+<h2 id="guarantee-po">หลักประกันสัญญา (Guarantee ที่ PO)<a class="headerlink" href="#guarantee-po" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase &gt; Orders &gt; Purchase Orders</p>
+<ol>
+<li>
+<p>จาก RFQ ที่ได้รับคัดเลือก และผ่านการอนุมัติจากผู้อนุมัติ (Status เปลี่ยนเป็น PO) ให้สร้าง Guarantee ประเภทหลักประกันสัญญา</p>
+<ol>
+<li>กดปุ่ม "Guarantee"
+  <img alt="" src="../img/po_create_guarantee.png"/></li>
+<li>กดปุ่ม Create เพื่อสร้าง Guarantee สำหรับ PO นี้
+  <img alt="" src="../img/po_create_guarantee2.png"/></li>
+<li>กรอกรายละเอียดของ Guarantee
+  <img alt="" src="../img/po_guarantee_detail.png"/>
+        1. Guarantee Number: หมายเลขอ้างอิงของหลักประกัน (ใช้ในการสื่อสารกับฝ่ายบัญชี)<br/>
+        2. Reference: เลขที่เอกสารต้นทาง<br/>
+        3. Guarantee Method: อ้างอิงหลักประกัน ในที่นี้จะเป็นหลักประกันสัญญา<br/>
+        4. Partner: ชื่อผู้เสนอราคา<br/>
+        5. Guarantee Type: ประเภทของหลักประกัน เช่น เช็ค พันธบัตรรัฐบาลไทย<br/>
+        6. Amount: เงินสำหรับหลักประกัน<br/>
+        7. Guarantee Receive Date: วันที่ได้รับหลักประกัน<br/>
+        8. Document Ref: อ้างอิงเอกสารหลักประกัน<br/>
+        9. Guarantee Due Date: วันที่ครบกำหนดคืนหลักประกัน<br/>
+        10. Invoice Ref: อ้างอิงเลขที่ Customer Invoice<br/>
+        11. Bill Ref: อ้างอิงเลขที่ Vendor Bill<br/>
+        12. Return Date: วันที่คืนหลักประกัน<br/>
+        13. Note: บันทึกรายละเอียดเพิ่มเติมสำหรับหลักประกัน<br/></li>
+</ol>
+</li>
+<li>
+<p>การเงินบัญชีบันทึกหลักประกันสัญญา (Customer Invoice -&gt; Payment)
+<img alt="" src="../img/po_guarantee_receive.png"/></p>
+</li>
+<li>เมื่อถึงกำหนดการคืนหลักประกัน การเงินบัญชีดำเนินการคืนหลักประกัน (Vendor Bill -&gt; Payment)
+<img alt="" src="../img/po_guarantee_return.png"/></li>
+<li>เอกสารหลักประกันทั้งหมด สามารถเรียกดูได้ที่เมนู Purchase &gt; Orders &gt; Guarantee
+<img alt="" src="../img/guarantee_menu.png"/></li>
+</ol>
+<p>End.</p>
+<hr/>
+<h2 id="retention">เงินประกันผลงาน (Retention)<a class="headerlink" href="#retention" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase &gt; Orders &gt; Requests for Quotation</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>เงินประกันผลงาน คือ การหักเงินประกันจากเงินงวดในอัตราร้อยละหรือจำนวนเงินที่เท่าๆ กัน ทุกงวด</li>
+<li>บันทึกอัตราร้อยละหรือจำนวนเงินประกันผลงาน ที่ Invoice Plan เท่านั้น</li>
+<li>เจ้าหน้าที่พัสดุกำหนดอัตราร้อยละหรือจำนวนเงินประกันผลงาน (ข้อ 1) แต่การหักเงินประกันผลงานจะถูกบันทึกโดยฝ่ายบัญชีตอนจ่ายชำระเงินงวดแก่ผู้ขาย/ผู้ให้บริการ</li>
+</ul>
+</div>
+<ol>
+<li>
+<p>กำหนดอัตราการหักเงินแต่ละงวด เป็นอัตราร้อยละหรือจำนวนเงิน เพื่อการประกันผลงาน
+      <img alt="" src="../img/ip_retention_on_po.png"/></p>
+<p><br/></p>
+</li>
+<li>
+<p>ดำเนินการอนุมัติ RFQ ไปจนถึงการตรวจรับวัสดุ WA ในแต่ละงวดตามกระบวนการปกติ</p>
+</li>
+<li>เมื่อถึงขั้นตอนการออกใบแจ้งหนี้ให้กดปุ่ม Create Bill เลือก WA เพื่อสร้าง Invoice ตามปกติ</li>
+<li>ดูเอกสาร Vendor Bills ที่สร้างขึ้น<ol>
+<li>ระบบจะสร้างเอกสารใบแจ้งหนี้ให้ ซึ่งเมื่อคลิกที่ปุ่ม "Vendor Bills" ระบบจะแสดงใบแจ้งหนี้ที่ถูกสร้างตาม WA และ Invoice Plan
+  <img alt="" src="../img/ip_view_bill.png"/></li>
+<li>คลิกเข้าไปดูในแต่ละเอกสารที่สร้างขึ้นจะเห็นว่า มีการหักเงินประกันผลงานไว้ในแต่ละใบแจ้งหนี้
+  <img alt="" src="../img/ip_invoice_list.png"/>
+<img alt="" src="../img/ip_invoice_retention.png"/></li>
+</ol>
+</li>
+</ol>
+<p>End.</p>
+<hr/>
+<h2 id="_2">กรณีคืนเงินประกันผลงาน และต้องวางหลักประกัน<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase &gt; Orders &gt; Purchase Orders</p>
+<ol>
+<li>เจ้าหน้าที่บัญชีคืนเงินประกันผลงานที่ Vendor Bills</li>
+<li>เจ้าหน้าที่พัสดุบันทึกหลักประกันผลงาน
+<img alt="" src="../img/po_guarantee.png"/></li>
+<li>หลังจากหมดภาระผูกพัน เจ้าหน้าที่พัสดุบันทึกข้อมูลการคืนหลักประกันผลงาน</li>
+</ol>
+<hr/>
+<h2 id="invoice-plan-deposit">กรณีเงินงวดแบบมีเงินมัดจำ (Invoice Plan + Deposit)<a class="headerlink" href="#invoice-plan-deposit" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase &gt; Orders &gt; Requests for Quotation</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>การบันทึกเงินงวด + เงินมัดจำบน Invoice Plan จะบันทึกที่ RFQ </li>
+<li>Ref: <a href="../po3_for_procurement_officer/#rfq-purchase-agreementte">สร้างใบเสนอราคา RFQ (จาก Purchase Agreement/TE)</a></li>
+</ul>
+</div>
+<ol>
+<li>
+<p>สร้าง Invoice Plan</p>
+<ol>
+<li>กดปุ่มเพื่อ Edit RFQ, และเลือก Use Invoice Plan เพื่อเปิดการใช้งาน Invoice Plan</li>
+<li>คลิกลิงค์ Create Invoice Plan เพื่อเปิด Wizard</li>
+<li>Number of installment: เลือกจำนวนงวดการแบ่งจ่ายที่ต้องการ</li>
+<li><strong>Deposit on 1st Invoice</strong>: เลือกเพื่อให้มี Installment ที่ 0 สำหรับ Deposit</li>
+<li>Installment Date: เลือกวันที่การจ่ายงวดแรก</li>
+<li>Interval: เลือกช่วงเวลาระหว่างงวด (เป็นแค่ตัวช่วย)</li>
+<li>กดปุ่ม Create Invoice Plan เพื่อสร้างตารางการแบ่งจ่าย
+  <img alt="" src="../img/ip_create_invoice_plan_w_deposit.png"/></li>
+</ol>
+</li>
+<li>
+<p>ปรับรายละเอียดตาราง Invoice Plan</p>
+<ol>
+<li>Installment 0 คือ Deposit</li>
+<li>ใส่ Percent หรือ Amount (ซึ่งจะคำนวณกลับเป็น %)</li>
+<li>กดปุ่ม Create Invoice เพื่อสร้าง Deposit Invoice
+  <img alt="" src="../img/ip_invoice_plan_create_deposit.png"/></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>การสร้าง Deposit Invoice จะเป็นใบแจ้งหนี้แรกที่ถูกสร้าง และสามารถทำได้โดยที่ยังไม่มีการตรวจรับ</li>
+<li>ถ้าผู้ใช้พยายามสร้าง Bill อื่นก่อนที่จะสร้าง Deposit Invoice ระบบจะไม่อนุญาต</li>
+</ul>
+</div>
+</li>
+</ol>
+<p>End.</p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../po5_for_procurement_officer/" title="Procurement Officer (วัสดุเข้าคลัง)">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../po3_for_procurement_officer/" title="Procurement Officer (เริ่มต้น)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+<p>Copyright © 2021 Ecosoft Co., Ltd.</p>
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../po3_for_procurement_officer/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../po5_for_procurement_officer/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '../../..';</script>
+<script defer="" src="../../../js/theme_extra.js"></script>
+<script defer="" src="../../../js/theme.js"></script>
+<script defer="" src="../../../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

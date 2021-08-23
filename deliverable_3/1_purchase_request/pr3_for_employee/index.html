@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Employee - Odoo for HII</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Employee";
+    var mkdocs_page_input_path = "deliverable_3/1_purchase_request/pr3_for_employee.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../../../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../../../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="../../../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Odoo for HII</a>
+<div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">[[Deliverable 2 - Budgeting]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg3_for_user/">Budget User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg4_for_manager/">Budget Manager</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg5_for_approver/">Budget Approver</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">[[Deliverable 3 - Procurement]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Purchase Request</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../pr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pr2_config/">System Config</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Employee</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#purchase-requestpr">การสร้างใบขอซื้อจ้าง (Purchase Request:PR)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pr4_for_procurement_head/">Procurement Head</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Procurement Process</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../2_procurement/po1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_procurement/po2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_procurement/po3_for_procurement_officer/">Procurement Officer (เริ่มต้น)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_procurement/po4_for_procurement_officer/">Procurement Officer (ส่วนเพิ่ม)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_procurement/po5_for_procurement_officer/">Procurement Officer (วัสดุเข้าคลัง)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_procurement/po6_for_procurement_officer/">Procurement Officer (Paperless WA)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../2_procurement/po7_for_procurement_officer/">จัดซื้อจัดจ้างวงเงินเล็กน้อย</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Stock Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr3_for_user/">Stock Request User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr4_for_manager/">Stock Request Manager</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Odoo for HII</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="../../..">Docs</a> »</li>
+<li>Purchase Request »</li>
+<li>Employee</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/edit/master/docs/deliverable_3/1_purchase_request/pr3_for_employee.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="purchase-request">กระบวนการขอซื้อขอจ้าง (Purchase Request)<a class="headerlink" href="#purchase-request" title="Permanent link">#</a></h1>
+<p><strong>เอกสารนี้สำหรับ ::</strong> ผู้ขอจัดซื้อจัดจ้าง (Employee)</p>
+<h2 id="purchase-requestpr">การสร้างใบขอซื้อจ้าง (Purchase Request:PR)<a class="headerlink" href="#purchase-requestpr" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase Requests &gt; Purchase Requests &gt; Purchase Requests</p>
+<p><img alt="" src="../img/1_pr_new.png"/></p>
+<ol>
+<li>
+<p>กดปุ่ม Create เพื่อสร้าง Purchase Request ที่ Header เลือก/กรอกข้อมูลดังนี้</p>
+<ol>
+<li>Procurement Type: ประเภทของการซื้อ<ul>
+<li>ซื้อ/จ้าง/เช่า</li>
+<li>จ้างที่ปรึกษา</li>
+<li>จ้างก่อสร้าง</li>
+</ul>
+</li>
+<li>Purchase Type: ระเบียบการ<ul>
+<li>จัดซื้อจัดจ้างผ่านพัสดุ</li>
+<li>วงเงินเล็กน้อย</li>
+</ul>
+</li>
+<li>Procurement Method: วิธีการจัดซื้อจัดจ้าง<ul>
+<li>เฉพาะเจาะจง</li>
+<li>คัดเลือก</li>
+<li>ประกาศเชิญชวนทั่วไป e-bidding</li>
+<li>ประกาศเชิญชวนทั่วไป e-market</li>
+</ul>
+</li>
+<li>Description: รายละเอียดของการจัดซื้อ</li>
+<li>Procurement Time: ระยะเวลาการดำเนินการ</li>
+<li>Total Cost: วงเงินรวม</li>
+<li>Creation Date: วันที่สร้างเอกสาร</li>
+<li>Created By: ผู้สร้างเอกสาร</li>
+<li>Requested By: ผู้ขอ (อาจไม่ใช่ผู้สร้างเอกสาร กรณีทำแทน)</li>
+<li>Purchase Representative: เจ้าพนักงานจัดซื้อจัดจ้างที่ได้รับมอบหมาย</li>
+<li>Verified By: ผู้ตรวจสอบเอกสาร (หัวหน้าเจ้าพนักงานจัดซื้อจัดจ้าง)</li>
+<li>Verified Date: วันที่ตรวจสอบเอกสาร</li>
+<li>Verified Reason: ความเห็นของผู้ตรวจสอบเอกสาร</li>
+<li>Approved By: ผู้อนุมัติวงเงิน (คนสุดท้ายในลำดับการอนุมัติ)</li>
+<li>Approved Date: วันที่อนุมัติวงเงิน</li>
+<li>Source Document: เลขที่โครงการ (ระบบ e-GP)</li>
+<li>Memo: เลขที่บันทึกข้อความ</li>
+<li>Note: ข้อเสนออื่นๆ</li>
+<li>Picking Type</li>
+<li>Procurement Group</li>
+<li>Exceptions: แสดง Exception ทั้งหมดบน PR เช่น คณะกรรมการไม่ถูกต้อง </li>
+<li>Operating Unit: ฝ่ายใน สสน.</li>
+</ol>
+</li>
+<li>
+<p>แท็บ Product เพิ่มรายการที่ต้องการขอซื้อขอจ้าง โดยมีข้อมูลดังนี้</p>
+<ol>
+<li>Activity: เนื้องานที่ต้องการขอซื้อจ้าง</li>
+<li>Product: สินค้าที่ขอซื้อจ้าง (ระบบ default ตาม Procurement Type แก้ไขได้ถ้าเป็นสินค้าอื่นที่เข้าคลัง)</li>
+<li>Description: รายละเอียดเพิ่มเติมการขอซื้อจ้าง</li>
+<li>Quantity: จำนวนที่ต้องการ</li>
+<li>Analytic Account: ชื่อโครงการหรือชื่อหน่วยงานที่ต้องการใช้งบประมาณ</li>
+<li>Fund: ชื่อแหล่งทุนของโครงการหรือหน่วยงานที่ใช้งบประมาณ</li>
+<li>Analytic Tags: ข้อมูลกลุ่มงบประมาณ แผนงาน ประเภทงบประมาณ</li>
+<li>Requested Date: วันที่ต้องการ</li>
+<li>Estimated Cost: งบประมาณ</li>
+</ol>
+<p><img alt="" src="../img/1_pr_product_line.png"/></p>
+<p><br/></p>
+</li>
+<li>
+<p>แท็บ Committee รายชื่อคณะกรรมการ เงื่อนไขเป็นไปตามจำนวนเงินรวม และข้อมูลการจัดซื้อจัดจ้างต่างๆ Procurement Type, Purchase type และ Procurement method ให้เพิ่มรายชื่อคณะกรรมการการจัดซื้อจัดจ้างและคณะกรรมการการตรวจรับ (Committee) ตาม พ.ร.บ. โดยมีข้อกำหนดดังต่อไปนี้</p>
+<p><img alt="" src="../img/1_pr_committee.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>หากจำนวนคณะกรรมการไม่สอดคล้องกับเกณฑ์ พ.ร.บ. ระบบจะออกคำเตือนเมื่อกดปุ่ม Request Approval ดังตัวอย่างเช่น</li>
+</ul>
+<p><img alt="" src="../img/1_pr_exception.png"/></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>สรุปหลักการจำนวนรายชื่อคณะกรรมการการจัดซื้อจัดจ้างและคณะกรรมการการตรวจรับตาม พ.ร.บ. 2560</p>
+<ul>
+<li>ระเบียบ วงเงินเล็กน้อย ไม่เกิน 100,000 บาท ต้องมีกรรมการตรวจรับอย่างน้อย 1 คน</li>
+<li>ซื้อ/จ้าง/เช่า ไม่เกิน 500,000 บาท ต้องมีกรรมการตรวจรับอย่างน้อย 1 คน</li>
+<li>ซื้อ/จ้าง/เช่า เกิน 500,000 บาท ต้องมีกรรมการจัดซื้อจัดจ้างอย่างน้อย 3 คน และกรรมการตรวจรับอย่างน้อย 3 คน</li>
+<li>จ้างที่ปรึกษา ต้องมีกรรมการจัดซื้อจัดจ้างอย่างน้อย 5 คน และกรรมการตรวจรับอย่างน้อย 5 คน</li>
+<li>จ้างก่อสร้าง ต้องมีกรรมการจัดซื้อจัดจ้างอย่างน้อย 3 คน และกรรมการตรวจรับอย่างน้อย 3 คน</li>
+</ul>
+</div>
+</li>
+<li>
+<p>หากมีข้อมูลแนบเพื่อการพิจารณาสามารถเพิ่มได้ที่ รูปคลิป ด้านล่างของเอกสาร</p>
+<p><img alt="" src="../img/1_pr_more_info.png"/></p>
+<p><br/></p>
+</li>
+<li>
+<p>กดปุ่ม Print - Purchase Request เพื่อตรวจสอบความถูกต้อง</p>
+<p><img alt="" src="../img/1_pr_printout.png"/></p>
+<p><br/></p>
+</li>
+<li>
+<p>กดปุ่ม Request Approval เพื่อส่งเอกสาร Purchase Request นี้ไปยังฝ่ายพัสดุเพื่อตรวจทานและส่งอนุมัติการจัดซื้อจัดจ้างและการเบิกใช้งบประมาณต่อไป</p>
+<ul>
+<li>Substate = To Verify</li>
+<li>State = To be approved</li>
+</ul>
+<p><img alt="" src="../img/1_pr_header.png"/></p>
+</li>
+</ol>
+<p>End.</p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../pr4_for_procurement_head/" title="Procurement Head">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../pr2_config/" title="System Config"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+<p>Copyright © 2021 Ecosoft Co., Ltd.</p>
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../pr2_config/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../pr4_for_procurement_head/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '../../..';</script>
+<script defer="" src="../../../js/theme_extra.js"></script>
+<script defer="" src="../../../js/theme.js"></script>
+<script defer="" src="../../../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

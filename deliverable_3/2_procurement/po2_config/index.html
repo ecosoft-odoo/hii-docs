@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>System Config - Odoo for HII</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "System Config";
+    var mkdocs_page_input_path = "deliverable_3/2_procurement/po2_config.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../../../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../../../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="../../../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Odoo for HII</a>
+<div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">[[Deliverable 2 - Budgeting]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg3_for_user/">Budget User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg4_for_manager/">Budget Manager</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg5_for_approver/">Budget Approver</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">[[Deliverable 3 - Procurement]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Purchase Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr3_for_employee/">Employee</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr4_for_procurement_head/">Procurement Head</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Procurement Process</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../po1_overview/">Overview</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">System Config</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#1">1. การตั้งค่าสิทธิ์สำหรับผู้ใช้งาน</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#2-work-acceptance">2. การตั้งค่าการใช้งานโมดูลการตรวจรับ (Work Acceptance)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po3_for_procurement_officer/">Procurement Officer (เริ่มต้น)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po4_for_procurement_officer/">Procurement Officer (ส่วนเพิ่ม)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po5_for_procurement_officer/">Procurement Officer (วัสดุเข้าคลัง)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po6_for_procurement_officer/">Procurement Officer (Paperless WA)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po7_for_procurement_officer/">จัดซื้อจัดจ้างวงเงินเล็กน้อย</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Stock Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr3_for_user/">Stock Request User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr4_for_manager/">Stock Request Manager</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Odoo for HII</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="../../..">Docs</a> »</li>
+<li>Procurement Process »</li>
+<li>System Config</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/edit/master/docs/deliverable_3/2_procurement/po2_config.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="_1">กระบวนการจัดซื้อจัดจ้าง<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p><strong>เอกสารนี้สำหรับ ::</strong> ผู้ดูแลระบบ (System Administrator)</p>
+<ol>
+<li>การตั้งค่าสิทธิ์สำหรับผู้ใช้งาน (User Role)</li>
+<li>การตั้งค่าการใช้งานโมดูลการตรวจรับ (Work Acceptance)</li>
+</ol>
+<!-- 3. การตั้งค่าสำหรับการประกันผลงาน (Retention)
+4. การตั้งค่าสำหรับการประกันสัญญาและประกันซอง e-Bidding (Guarantee) -->
+<h2 id="1">1. การตั้งค่าสิทธิ์สำหรับผู้ใช้งาน<a class="headerlink" href="#1" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Settings &gt; Users &amp; Companies &gt; Users</p>
+<ul>
+<li>สำหรับผู้ทำหน้าที่เจ้าหน้าที่พัสดุ ต้องมี Role เป็น Procurement Officer</li>
+</ul>
+<h2 id="2-work-acceptance">2. การตั้งค่าการใช้งานโมดูลการตรวจรับ (Work Acceptance)<a class="headerlink" href="#2-work-acceptance" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase &gt; Configurations &gt; Settings</p>
+<p><img alt="" src="../img/po_wa_config.png"/></p>
+<p>โมดูลการตรวจรับพัสดุ แบ่งเป็น 3 เรื่องคือ</p>
+<ol>
+<li>Enable WA on Purchase Order :: การสร้าง Work Acceptance จากหน้าต่าง Purchase Order<ul>
+<li>Work Acceptance ถือเป็นจุดเริ่มต้น เมื่อเรียกใช้แล้วสามารถเพิ่ม Option ที่ 2 และ 3 ได้</li>
+<li>WA เป็นเอกสารที่สร้างขึ้นจาก Purchase Order</li>
+<li>เลือก Enable WA on Goods Receipt หาต้องการใช้ WA ในการควบคุมการรับสินค้าเข้าคลัง (Stock IN)</li>
+<li>เลือก Enable WA on Vendor Bill หากต้องการใช้ WA ในการควบคุมการออกเอกสารการรับแจ้งหนี้ (Vendor Bill)</li>
+</ul>
+</li>
+<li>Enable Evaluation on Work Acceptance :: เพิ่มการประเมินผลงานในการตรวจรับ</li>
+<li>Enable Late Delivery Fines on Work Acceptance :: เพิ่มค่าปรับกรณีส่งของล่าช้า<ul>
+<li>กำหนดอัตราค่าปรับเบื้องต้นเป็นจำนวนเงินต่อวัน</li>
+<li>กำหนดบัญชีรายได้ค่าปรับ</li>
+</ul>
+</li>
+</ol>
+<!-- ## 3. การตั้งค่าสำหรับโมดูลเงินการประกันผลงาน (Retention)
+
+**Menu ::** Invoicing > Configurations > Settings
+
+![](pix/po_retention_config.png)
+
+1. Enable Invoice's Retention on Payment :: เพิ่มทางเลือกในการกำหนดการหักเงินประกันผลงานจากหน้าต่าง Purchase Order ในกรณีมี Invoice Plan
+2. Retention Account :: กำหนด Account Code ที่ใช้ในการหักเงินประกัน
+
+## 4. การตั้งค่าสำหรับการประกันสัญญาและประกันซอง e-Bidding (Guarantee)
+
+**Menu ::** Purchase > Configurations > Guarantee > Guarantee Method
+
+![](pix/guarantee_method_config.png)
+
+**Menu ::** Purchase > Configurations > Guarantee > Guarantee Method
+
+![](pix/guarantee_type_config.png) -->
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../po3_for_procurement_officer/" title="Procurement Officer (เริ่มต้น)">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../po1_overview/" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+<p>Copyright © 2021 Ecosoft Co., Ltd.</p>
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../po1_overview/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../po3_for_procurement_officer/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '../../..';</script>
+<script defer="" src="../../../js/theme_extra.js"></script>
+<script defer="" src="../../../js/theme.js"></script>
+<script defer="" src="../../../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

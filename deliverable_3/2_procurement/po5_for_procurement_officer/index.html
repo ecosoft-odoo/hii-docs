@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Procurement Officer (วัสดุเข้าคลัง) - Odoo for HII</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Procurement Officer (\u0e27\u0e31\u0e2a\u0e14\u0e38\u0e40\u0e02\u0e49\u0e32\u0e04\u0e25\u0e31\u0e07)";
+    var mkdocs_page_input_path = "deliverable_3/2_procurement/po5_for_procurement_officer.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../../../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../../../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="../../../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Odoo for HII</a>
+<div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">[[Deliverable 2 - Budgeting]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg3_for_user/">Budget User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg4_for_manager/">Budget Manager</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_2/1_budget/bg5_for_approver/">Budget Approver</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">[[Deliverable 3 - Procurement]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Overview</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Purchase Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr3_for_employee/">Employee</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../1_purchase_request/pr4_for_procurement_head/">Procurement Head</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Procurement Process</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../po1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po3_for_procurement_officer/">Procurement Officer (เริ่มต้น)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po4_for_procurement_officer/">Procurement Officer (ส่วนเพิ่ม)</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Procurement Officer (วัสดุเข้าคลัง)</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#purchase-requestpr">การสร้างใบขอซื้อจ้างสำหรับวัสดุสำนักงาน (Purchase Request:PR)</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#te-rfq-po-wa">ดำเนินการสร้าง TE &gt; RFQ &gt; PO &gt; WA</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#receipt-vendor-bill-wa">รับวัสดุเข้าคลัง (Receipt) และใบแจ้งหนี้ (Vendor Bill) ตามผลการตรวจรับ (WA)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po6_for_procurement_officer/">Procurement Officer (Paperless WA)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../po7_for_procurement_officer/">จัดซื้อจัดจ้างวงเงินเล็กน้อย</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Stock Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr3_for_user/">Stock Request User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../3_stock_request/sr4_for_manager/">Stock Request Manager</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Odoo for HII</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="../../..">Docs</a> »</li>
+<li>Procurement Process »</li>
+<li>Procurement Officer (วัสดุเข้าคลัง)</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/edit/master/docs/deliverable_3/2_procurement/po5_for_procurement_officer.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="_1">กระบวนการจัดซื้อจัดจ้าง (กรณีมีรับวัสดุ)<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<p>กรณีซื้อวัสดุสำนักงาน จะมีขั้นตอนเกือบทั้งหมดเหมือนกับกรณีไม่ใช่วัสดุ แต่จะมีขั้นตอนเพิ่มเติมคือ</p>
+<ul>
+<li><strong>เพิ่มขั้นตอนระหว่างการสร้างเอกสาร PR โดยจะสามารถเลือกสินค้าที่ต้องการซื้อได้เลย</strong></li>
+<li>ดำเนินการสร้าง TE &gt; RFQ &gt; PO ตามปกติ</li>
+<li>ดำเนินการตรวจรับตามปกติ (WA)</li>
+<li><strong>เพิ่มขั้นตอนการรับสินค้าเข้าคลัง (IN) โดยอ้างอิงถึงการตรวจรับพัสดุ (WA)</strong></li>
+<li>ออกใบแจ้งหนี้ตามจำนวนสินค้าที่ได้รับ</li>
+</ul>
+<p><strong>เอกสารนี้สำหรับ ::</strong> เจ้าหน้าที่พัสดุ (Procurement Officer)</p>
+<hr/>
+<h2 id="purchase-requestpr">การสร้างใบขอซื้อจ้างสำหรับวัสดุสำนักงาน (Purchase Request:PR)<a class="headerlink" href="#purchase-requestpr" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase Requests &gt; Purchase Requests &gt; Purchase Requests</p>
+<ol>
+<li>
+<p>สร้างเอกสาร PR ตามปกติ โดยมีความแตกต่างจาก<a href="../../1_purchase_request/pr3_for_employee/#purchase-requestpr">การสร้างใบขอซื้อจ้าง PR</a>โดยทั่วไปดังต่อไปนี้</p>
+<ol>
+<li>เลือกวัสดุที่ต้องการซื้อ
+<img alt="" src="../img/stockable_pr_product.png"/></li>
+</ol>
+</li>
+<li>
+<p>หลังจากนี้เอกสาร PR จะเข้ากระบวนการตรวจสอบจากพัสดุ และเข้ารับการอนุมัติวงเงินจนสถานะเปลี่ยนเป็น Approved</p>
+</li>
+</ol>
+<p>End.</p>
+<hr/>
+<h2 id="te-rfq-po-wa">ดำเนินการสร้าง TE &gt; RFQ &gt; PO &gt; WA<a class="headerlink" href="#te-rfq-po-wa" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Purchase &gt; Orders &gt; Purchase Orders</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ขั้นตอนนี้เริ่มต้นหลังจากได้ Purchase Order ที่ Approved แล้ว (state = Purchase Order)</p>
+<p>Ref: <a href="../po3_for_procurement_officer/">สร้างเอกสารการเสนอราคา Purchase Agreement/TE จาก PR</a></p>
+</div>
+<ol>
+<li>ตรวจทานเอกสาร Purchase Order ที่ได้รับการอนุมัติแล้ว<ol>
+<li>เนื่องจากจาก Product เป็นวัสดุสำนักงานที่ต้องรับเข้าคลัง <strong>ระบบจะสร้างใบรับสินค้า Receipt ไว้ให้ล่วงหน้า</strong>
+<img alt="" src="../img/stockable_po_approved.png"/></li>
+<li>เจ้าหน้าที่พัสดุจะสามารถคลิกที่ icon Receipt เพิ่มเข้าไปดูเอกสารรับวัสดุเข้าคลังโดยเอกสารมีสถานะ Ready</li>
+<li>เอกสารต้องอ้างถึงเอกสารการตรวจรับ WA ที่ผ่านการอนุมัติแล้ว จึงจะสามารถรับวัสดุเข้าคลังได้
+<img alt="" src="../img/stockable_in_ready.png"/></li>
+</ol>
+</li>
+<li><a href="../po3_for_procurement_officer/#wa-po">สร้างเอกสารตรวจรับวัสดุ WA จาก PO ตามขั้นตอนปกติ</a></li>
+</ol>
+<p>End.</p>
+<hr/>
+<h2 id="receipt-vendor-bill-wa">รับวัสดุเข้าคลัง (Receipt) และใบแจ้งหนี้ (Vendor Bill) ตามผลการตรวจรับ (WA)<a class="headerlink" href="#receipt-vendor-bill-wa" title="Permanent link">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ขั้นตอนนี้เกิดขึ้นหลังจากได้ทำการตรวจรับสินค้า WA เป็นที่เรียบร้อยแล้ว</p>
+</div>
+<p><strong>Menu ::</strong> Purchase &gt; Orders &gt; Purchase Orders</p>
+<ol>
+<li>
+<p>ที่เอกสาร Purchase Order หลังจากได้ทำเอกสารตรวจรับ WA เป็นที่เรียบร้อยแล้ว มีข้อมูลที่น่าสนใจดังนี้</p>
+<ol>
+<li>WA ถูกสร้างและอนุมัติแล้ว</li>
+<li>Receipt (IN) พร้อมสำหรับการรับวัสดุ</li>
+<li>Quantity: จำนวนที่สั่งซื้อ</li>
+<li>Accepted: จำนวนที่ผ่านการตรวจรับโดย WA</li>
+<li>Qty to Receive: จำนวนที่ระบบเตรียมรับ</li>
+<li>Received: จำนวนที่รับเข้าคลังแล้ว
+<img alt="" src="../img/stockable_po_ready_to_receive.png"/></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>จากรูปตัวอย่างจะเห็นว่า การตรวจรับได้ทำครบแล้ว (Qty=10) แต่ยังไม่ได้รับเข้าคลัง (Qty=0)</p>
+</div>
+</li>
+<li>
+<p>ดำเนินการรับของเข้าคลัง (Receipt IN)</p>
+<ol>
+<li>จากหน้าต่าง Purchase Order กดปุ่ม Receipt Product (หรือคลิกที่ icon Receipt)</li>
+<li>ที่เอกสาร Receipt ให้เลือกเอกสาร WA ที่ได้ทำการตรวจรับไปก่อนหน้า</li>
+<li>กดปุ่ม Validate ระบบจะทำการรับของเข้าคลังตามจำนวนใน WA</li>
+<li>จำนวนการรับจะเท่ากับจำนวนที่ได้ตรวจรับใน WA และสถานะเอกสารเปลี่ยนเป็น Done
+<img alt="" src="../img/stockable_in_complete.png"/></li>
+</ol>
+</li>
+<li>
+<p>สร้างเอกสารใบแจ้งหนี้ Vendor Bill (draft)</p>
+<ol>
+<li>กลับมาที่หน้าต่าง Purchase Order จะเห็นว่ามีจำนวนรับวัสดุแล้ว (Received)</li>
+<li>แต่จำนวนที่ต้องแจ้งหนี้ (Qty to Bill) ยังคงอยู่ (จำนวนแจ้งหนี้แล้ว Billed = 0.0)</li>
+<li>กดปุ่ม Create Bill เพื่อสร้างใบแจ้งหนี้ ระบบจะเปิด Wizard</li>
+<li>ที่ Wizard ให้เลือก WA ที่ตรวจรับแล้วแต่ยังไม่ออกใบแจ้งหนี้</li>
+<li>กดปุ่ม Create Vendor Bill เพื่อสร้างใบแจ้งหนี้</li>
+<li>หลังจากสร้างใบแจ้งหนี้แล้วที่หน้าต่าง Purchase Order จะมีปุ่มกดเพื่อเชื่อมไปยัง Vendor Bills ที่เพิ่งถูกสร้างขึ้น
+<img alt="" src="../img/stockable_po_ready_to_bill.png"/>
+<img alt="" src="../img/stockable_po_ready_to_bill2.png"/></li>
+</ol>
+</li>
+</ol>
+<p>End.</p>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../po6_for_procurement_officer/" title="Procurement Officer (Paperless WA)">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../po4_for_procurement_officer/" title="Procurement Officer (ส่วนเพิ่ม)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+<p>Copyright © 2021 Ecosoft Co., Ltd.</p>
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../po4_for_procurement_officer/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../po6_for_procurement_officer/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '../../..';</script>
+<script defer="" src="../../../js/theme_extra.js"></script>
+<script defer="" src="../../../js/theme.js"></script>
+<script defer="" src="../../../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>

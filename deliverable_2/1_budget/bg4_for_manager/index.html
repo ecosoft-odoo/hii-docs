@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../../img/favicon.ico" rel="shortcut icon"/>
+<title>Budget Manager - Odoo for HII</title>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" rel="stylesheet">
+<link href="../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script>
+    // Current page data
+    var mkdocs_page_name = "Budget Manager";
+    var mkdocs_page_input_path = "deliverable_2/1_budget/bg4_for_manager.md";
+    var mkdocs_page_url = null;
+  </script>
+<script defer="" src="../../../js/jquery-2.1.1.min.js"></script>
+<script defer="" src="../../../js/modernizr-2.8.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</link><link href="../../../pdf/document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../../.."> Odoo for HII</a>
+<div role="search">
+<form action="../../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">[[Deliverable 2 - Budgeting]]</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bg1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bg2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bg3_for_user/">Budget User</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Budget Manager</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#master-data">การสร้างข้อมูลหลัก (Master Data)</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#project">การสร้างข้อมูลโครงการ (Project)</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#project_1">การสร้างข้อมูล Project</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#project-parent-project">การสร้าง Project ย่อยภายใต้ Parent Project</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analytic-account-project">การสร้างข้อมูล Analytic Account จาก Project</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#source-of-fund">การสร้างข้อมูลแหล่งงบประมาณ (Source of Fund)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#program">การสร้างข้อมูลกลุ่มงบประมาณ (Program)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#work-plan">การสร้างข้อมูลแผนงาน (Work Plan)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#budget-type">การสร้างข้อมูลประเภทงบประมาณ (Budget Type)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#budget-allocation">การแจกกรอบงบประมาณ (Budget Allocation)</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#budget-allocation_1">แจกกรอบงบประมาณตามแผนงาน, กลุ่มงบประมาณ และ ประเภทงบประมาณ (Budget Allocation)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analytic-account-budget-plan">ตรวจสอบข้อมูลการแจกกรอบงบประมาณ ในมุมมอง Analytic Account (Budget Plan)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analytic-tags">การเพิ่ม Analytic Tags หลังจากที่มีการแจกกรอบงบประมาณตอนต้นปีไปแล้ว</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_1">กระบวนการวางแผนการใช้จ่ายงบประมาณ</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#export-budget-control-sheet">การ Export Budget Control Sheet เพื่อให้พนักงานทั่วไปวางแผนการใช้จ่ายงบประมาณ</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#import-excel-budget-control-sheet">การ Import Excel Budget Control Sheet เข้าระบบ</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v0-v1">กระบวนการการจัดเก็บแผนการใช้จ่ายต้นปี (v.0) และส่งอนุมัติแผนการใช้จ่ายต้นปี (v.1)</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_2">กระบวนการปรับแผน</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#budget-revision-monitoring">รายงาน Budget Revision Monitoring</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_3">ขั้นตอนการปรับแผนงบประมาณ</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#analytic-account-extend">การขยายเวลา Analytic Account ที่ถูก Extend</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_4">กระบวนการปิดปีและยกยอดงบประมาณ</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#_5">การหยุดใช้งบประมาณบนระบบ</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#budget-carry-forward">การสร้างเอกสาร Budget Carry Forward</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-commitment">1. ยกยอด Commitment</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#2">2. ยกยอด เงินคงเหลือ</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#budget-carry-forward_1">การตรวจสอบข้อมูลเอกสาร Budget Carry Forward และยกยอดงบประมาณ</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bg5_for_approver/">Budget Approver</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">[[Deliverable 3 - Procurement]]</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/">Overview</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Purchase Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/1_purchase_request/pr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/1_purchase_request/pr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/1_purchase_request/pr3_for_employee/">Employee</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/1_purchase_request/pr4_for_procurement_head/">Procurement Head</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Procurement Process</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po3_for_procurement_officer/">Procurement Officer (เริ่มต้น)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po4_for_procurement_officer/">Procurement Officer (ส่วนเพิ่ม)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po5_for_procurement_officer/">Procurement Officer (วัสดุเข้าคลัง)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po6_for_procurement_officer/">Procurement Officer (Paperless WA)</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/2_procurement/po7_for_procurement_officer/">จัดซื้อจัดจ้างวงเงินเล็กน้อย</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Stock Request</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/3_stock_request/sr1_overview/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/3_stock_request/sr2_config/">System Config</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/3_stock_request/sr3_for_user/">Stock Request User</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deliverable_3/3_stock_request/sr4_for_manager/">Stock Request Manager</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="top navigation" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../../..">Odoo for HII</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="../../..">Docs</a> »</li>
+<li>[[Deliverable 2 - Budgeting]] »</li>
+<li>Budget Manager</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/edit/master/docs/deliverable_2/1_budget/bg4_for_manager.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main">
+<div class="section">
+<h1 id="budgeting-management-system">ระบบบริหารงบประมาณ (Budgeting Management System)<a class="headerlink" href="#budgeting-management-system" title="Permanent link">#</a></h1>
+<p><strong>เอกสารนี้สำหรับ ::</strong> ฝ่ายแผน (Budget Manager)</p>
+<h2 id="master-data">การสร้างข้อมูลหลัก (Master Data)<a class="headerlink" href="#master-data" title="Permanent link">#</a></h2>
+<h3 id="project">การสร้างข้อมูลโครงการ (Project)<a class="headerlink" href="#project" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Projects &gt; Project</p>
+<h4 id="project_1">การสร้างข้อมูล Project<a class="headerlink" href="#project_1" title="Permanent link">#</a></h4>
+<ol>
+<li>
+<p>กดปุ่ม "Create" เพื่อสร้าง Project ใหม่ และกรอกรายละเอียด</p>
+<ol>
+<li>ชื่อ Project</li>
+<li>รหัส Project</li>
+<li>Project Manager: ผู้รับผิดชอบ Project</li>
+<li>Department: ฝ่ายของ Project นี้ ระบบจะมีค่าเริ่มต้นให้ตาม Project Manager</li>
+<li>วันที่เริ่มต้นโครงการ</li>
+<li>วันที่สิ้นสุดโครงการ</li>
+<li>Member Tab: รายชื่อสมาชิกใน Project</li>
+</ol>
+<p><img alt="Create Project" src="../img/1_master_data/create_project.png"/></p>
+</li>
+<li>
+<p>ตรวจสอบข้อมูลให้ถูกต้องครบถ้วน</p>
+<ul>
+<li>ถูกต้องครบถ้วน กดปุ่ม "Save" เพื่อบันทึกข้อมูล</li>
+<li>หากต้องการแก้ไขให้กดปุ่ม "Edit"</li>
+</ul>
+<p><strong>Note</strong> โครงการจะต้องมีสถานะเป็น Draft เท่านั้นจึงจะแก้ไขข้อมูลได้</p>
+<p><img alt="" src="../img/1_master_data/edit_project.png"/></p>
+</li>
+<li>
+<p>กดปุ่ม "Confirm" ระบบจะเปลี่ยนสถานะเป็น Confirmed </p>
+<p><img alt="" src="../img/1_master_data/confirm_project.png"/></p>
+</li>
+</ol>
+<h4 id="project-parent-project">การสร้าง Project ย่อยภายใต้ Parent Project<a class="headerlink" href="#project-parent-project" title="Permanent link">#</a></h4>
+<ol>
+<li>
+<p>เลือกโครงการที่ต้องการสร้างโครงการย่อย</p>
+<ol>
+<li>กดปุ่ม "Action"</li>
+<li>กดปุ่ม "Split Project"</li>
+</ol>
+<p><img alt="" src="../img/1_master_data/split_project.png"/></p>
+</li>
+<li>
+<p>ระบจะแสดงหน้าต่าง เพื่อสร้างโครงการภายใต้ Parent Project</p>
+<ol>
+<li>กดปุ่ม "Add a line" เพื่อสร้างโครงการ</li>
+<li>ตั้งชื่อโครงการ</li>
+<li>ถูกต้องครบถ้วน กดปุ่ม "Split Project" เพื่อสร้างโครงการ ภายใต้ Parent Project</li>
+</ol>
+<p><img alt="" src="../img/1_master_data/split.png"/></p>
+</li>
+</ol>
+<p><strong>สิ้นสุดการสร้าง Project</strong></p>
+<h3 id="analytic-account-project">การสร้างข้อมูล Analytic Account จาก Project<a class="headerlink" href="#analytic-account-project" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Projects &gt; Project</p>
+<ol>
+<li>
+<p>หน้า List view ของ Project</p>
+<ol>
+<li>เลือก Project ที่ต้องการสร้าง Analytic Account โดยการคลิกช่องสี่เหลี่ยม</li>
+<li>กดปุ่ม "Action"</li>
+<li>กดปุ่ม "Create Analytic"</li>
+</ol>
+<p><img alt="" src="../img/1_master_data/create_aa.png"/></p>
+</li>
+<li>
+<p>ระบบแสดงหน้าต่าง</p>
+<ol>
+<li>Budget Period: เลือกปีงบประมาณของ Analytic Account</li>
+<li>กดปุ่ม "Create Analytic Account"</li>
+</ol>
+<p><img alt="" src="../img/1_master_data/create_aa4.png"/></p>
+</li>
+<li>
+<p>ระบบจะสร้างและไปยังหน้า Analytic Account ซึ่งจะแสดง Analytic Account ที่เพิ่งสร้าง</p>
+<p><img alt="" src="../img/1_master_data/create_aa_3.png"/></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Project สถานะ  Confirmed เท่านั้นถึงจะสามารถสร้าง Analytic Account ได้</li>
+<li>Analytic Account จากฝ่าย (Department) จะถูกสร้างขึ้นอัตโนมัติ</li>
+</ul>
+</div>
+<p><strong>สิ้นสุดการสร้าง Analytic Account</strong></p>
+<h3 id="source-of-fund">การสร้างข้อมูลแหล่งงบประมาณ (Source of Fund)<a class="headerlink" href="#source-of-fund" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Configurations  &gt; Source of Fund</p>
+<ol>
+<li>
+<p>กดปุ่ม "Create" เพื่อสร้าง Source of Fund ใหม่ และกรอกรายละเอียด</p>
+<ol>
+<li>ตั้งชื่อแหล่งทุน</li>
+<li>เลือกกลุ่มของแหล่งทุน</li>
+<li>Objective: วัตถุประสงค์ของแหล่งทุน (ถ้ามี)</li>
+</ol>
+<p><img alt="" src="../img/1_master_data/create_sof.png"/></p>
+</li>
+<li>
+<p>ตรวจสอบข้อมูลให้ถูกต้องครบถ้วน</p>
+<ul>
+<li>ถูกต้องครบถ้วน กดปุ่ม "Save" เพื่อบันทึกข้อมูล</li>
+<li>หากต้องการแก้ไขให้กดปุ่ม "Edit"</li>
+</ul>
+</li>
+</ol>
+<p><strong>สิ้นสุดกระบวนการสร้าง Source of Fund</strong></p>
+<h3 id="program">การสร้างข้อมูลกลุ่มงบประมาณ (Program)<a class="headerlink" href="#program" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Configurations &gt; Program</p>
+<ol>
+<li>
+<p>กดปุ่ม "Create" เพื่อสร้างข้อมูล Program</p>
+<ol>
+<li>ตั้งชื่อ Program</li>
+<li>ตั้งรหัส Program (ถ้ามี)</li>
+</ol>
+<p><img alt="" src="../img/1_master_data/create_program.png"/></p>
+</li>
+<li>
+<p>ตรวจสอบข้อมูลให้ถูกต้องครบถ้วน</p>
+<ul>
+<li>ถูกต้องครบถ้วน กดปุ่ม "Save" เพื่อบันทึกข้อมูล</li>
+<li>หากต้องการแก้ไขให้กดปุ่ม "Edit"</li>
+</ul>
+</li>
+</ol>
+<p><strong>สิ้นสุดการสร้าง Program</strong></p>
+<h3 id="work-plan">การสร้างข้อมูลแผนงาน (Work Plan)<a class="headerlink" href="#work-plan" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Configurations &gt; Work Plan</p>
+<ol>
+<li>
+<p>กดปุ่ม "Create" เพื่อสร้างข้อมูล Work Plan</p>
+<ol>
+<li>ตั้งชื่อ Work Plan</li>
+<li>ตั้งรหัส Work Plan (ถ้ามี)</li>
+</ol>
+<p><img alt="" src="../img/1_master_data/create_work_plan.png"/></p>
+</li>
+<li>
+<p>ตรวจสอบข้อมูลให้ถูกต้องครบถ้วน</p>
+<ul>
+<li>ถูกต้องครบถ้วน กดปุ่ม "Save" เพื่อบันทึกข้อมูล</li>
+<li>หากต้องการแก้ไขให้กดปุ่ม "Edit"</li>
+</ul>
+</li>
+</ol>
+<p><strong>สิ้นสุดการสร้าง Work Plan</strong></p>
+<h3 id="budget-type">การสร้างข้อมูลประเภทงบประมาณ (Budget Type)<a class="headerlink" href="#budget-type" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Configurations &gt; Budget Type</p>
+<ol>
+<li>
+<p>กดปุ่ม "Create" เพื่อสร้างข้อมูล Budget Type</p>
+<ol>
+<li>ตั้งชื่อ Budget Type</li>
+<li>ตั้งรหัส Budget Type (ถ้ามี)</li>
+</ol>
+<p><img alt="" src="../img/1_master_data/create_budget_type.png"/></p>
+</li>
+<li>
+<p>ตรวจสอบข้อมูลให้ถูกต้องครบถ้วน</p>
+<ul>
+<li>ถูกต้องครบถ้วน กดปุ่ม "Save" เพื่อบันทึกข้อมูล</li>
+<li>หากต้องการแก้ไขให้กดปุ่ม "Edit"</li>
+</ul>
+</li>
+</ol>
+<p><strong>สิ้นสุดการสร้าง Budget Type</strong></p>
+<hr/>
+<h2 id="budget-allocation">การแจกกรอบงบประมาณ (Budget Allocation)<a class="headerlink" href="#budget-allocation" title="Permanent link">#</a></h2>
+<p>ขั้นตอนการแจกกรอบงบประมาณ มีดังนี้</p>
+<ol>
+<li>แจกกรอบงบประมาณตามแผนงาน, กลุ่มงบประมาณ และ ประเภทงบประมาณ (Budget Allocation)</li>
+<li>ตรวจสอบข้อมูลการแจกกรอบงบประมาณ ในมุมมอง Analytic Account (Budget Plan)</li>
+</ol>
+<p>ขั้นตอนการทำงาน</p>
+<h3 id="budget-allocation_1">แจกกรอบงบประมาณตามแผนงาน, กลุ่มงบประมาณ และ ประเภทงบประมาณ (Budget Allocation)<a class="headerlink" href="#budget-allocation_1" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Allocation</p>
+<p>กดปุ่ม "Create" เพื่อสร้างการแจกกรอบงบประมาณ (Budget Allocation)</p>
+<ol>
+<li>ตั้งชื่อเอกสารสำหรับการแจกกรอบงบประมาณ</li>
+<li>Budget Period: เลือกปีงบประมาณ</li>
+<li>Add a line: เพื่อแจกรอบงบประมาณที่ละบรรทัด โดยเลือกข้อมูล ดังนี้<ul>
+<li>แหล่งทุน (Fund) ระบบจะแสดงกลุ่มของแหล่งทุน (Fund Group) ให้อัตโนมัติ</li>
+<li>Analytic Account </li>
+<li>Analytic tags (กลุ่มงบประมาณ, แผนงาน, ประเภทงบประมาณ)</li>
+<li>Allocated จำนวนเงินงบประมาณที่จัดสรรให้ข้อมูลบรรทัดนั้น</li>
+</ul>
+</li>
+<li>
+<p>เมื่อจัดสรรงบประมาณครบถ้วนแล้ว กด "Save" เพื่อบันทึกข้อมูล และตรวจสอบความถูกต้องอีกครั้ง สถานะเอกสารยังคงเป็น Draft</p>
+<ul>
+<li>ถ้าต้องการแก้ไข กด “Edit”</li>
+<li>ถ้าข้อมูลถูกต้องครบถ้วน ยืนยันการจัดสรรงบประมาณ กด "Done" สถานะเอกสารเปลี่ยนจาก Draft เป็น Done</li>
+</ul>
+<p><img alt="create budget allocation" src="../img/2_budget_allocation/budget_allocation.png"/></p>
+</li>
+<li>
+<p>ระบบแสดงปุ่ม "Generate Budget Plan" กดเพื่อสร้างเอกสาร Budget Plan</p>
+<p><img alt="generate budget plan" src="../img/2_budget_allocation/generate_bp.png"/></p>
+</li>
+</ol>
+<p><strong>สิ้นสุดการทำงานที่หน้า Budget Allocation</strong></p>
+<h3 id="analytic-account-budget-plan">ตรวจสอบข้อมูลการแจกกรอบงบประมาณ ในมุมมอง Analytic Account (Budget Plan)<a class="headerlink" href="#analytic-account-budget-plan" title="Permanent link">#</a></h3>
+<p>ระบบสร้าง Budget Plan สถานะเอกสารอยู่ที่ To Verify รอหัวหน้างานยุทธศาสตร์แผนงานและงบประมาณ Verify
+<img alt="" src="../img/2_budget_allocation/to_verify.png"/></p>
+<p>หลังจากหัวหน้างานยุทธศาสตร์แผนงานและงบประมาณ Verify เสร็จแล้วสถานะเอกสารอยู่ Confirmed
+<img alt="" src="../img/2_budget_allocation/verify.png"/></p>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Plan</p>
+<p>เลือก Budget Plan ที่สร้างจาก Budget Allocation</p>
+<ol>
+<li>ตรวจสอบข้อมูลตาม Analytic Account</li>
+<li>
+<p>กดปุ่ม "Create/Update Budget Control" เพื่อสร้าง Budget Control Sheet</p>
+<p><img alt="budget plan" src="../img/2_budget_allocation/budget_plan.png"/></p>
+<p>ระบบแสดงหน้าต่างแสดงการสร้าง Budget Control Sheet กดปุ่ม "Close"
+<img alt="close" src="../img/2_budget_allocation/close.png"/></p>
+</li>
+<li>
+<p>ตรวจสอบข้อมูล Budget Control Sheet ที่สร้าง</p>
+<p><img alt="verlify BCS" src="../img/2_budget_allocation/bcs.png"/></p>
+</li>
+<li>
+<p>หากถูกต้องครบถ้วน กลับมาที่ Menu :: Budget Plan กดปุ่ม "Done" เพื่อสิ้นสุดขั้นตอนการแจกกรอบงบประมาณ
+    สถานะเอกสารเปลี่ยนจาก Confirmed &gt; Done</p>
+</li>
+</ol>
+<p><strong>สิ้นสุดการทำงานที่หน้า Budget Plan</strong></p>
+<h3 id="analytic-tags">การเพิ่ม Analytic Tags หลังจากที่มีการแจกกรอบงบประมาณตอนต้นปีไปแล้ว<a class="headerlink" href="#analytic-tags" title="Permanent link">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">สำหรับ Use Cases</p>
+<ul>
+<li>(1) การโอนงบประมาณให้ Cost Center ที่ไม่เคยได้รับการจัดสรรงบประมาณตอนต้นปี</li>
+</ul>
+</div>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Allocation</p>
+<ol>
+<li>
+<p>ที่เมนู Budget Allocation ตรวจสอบสถานะของเอกสาร จะอยู่ที่ Confirmed</p>
+<ol>
+<li>กดปุ่ม "Set to draft" เพื่อเปลี่ยนสถานะเอกสารจาก Confirmed เป็น Draft</li>
+<li>กดปุ่ม "Edit" เพื่อใส่ Analytic Tags</li>
+</ol>
+<p><img alt="" src="../img/2_budget_allocation/edit_allocation_1.png"/></p>
+</li>
+<li>
+<p>กด "Add a line" เพื่อเพิ่ม Analytic Tags ให้กับ Cost Center ที่ยังไม่เคยมี Analytic Tags</p>
+<ol>
+<li>เลือก Fund</li>
+<li>เลือก Analytic Account</li>
+<li>เลือก Analytic Tags</li>
+</ol>
+<p><img alt="" src="../img/2_budget_allocation/edit_allocation_2.png"/></p>
+</li>
+<li>
+<p>กดปุ่ม "Save" ตรวจสอบข้อมูล</p>
+<ul>
+<li>ถูกต้องครบถ้วน กดปุ่ม "Done" เพื่อเปลี่ยนสถานะเอกสารจาก Draft เป็น Done</li>
+<li>หากต้องการแก้ไข กดปุ่ม "Edit"</li>
+</ul>
+</li>
+</ol>
+<p><strong>สิ้นสุดการเพิ่ม Analytic Tags</strong></p>
+<hr/>
+<h2 id="_1">กระบวนการวางแผนการใช้จ่ายงบประมาณ<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<h3 id="export-budget-control-sheet">การ Export Budget Control Sheet เพื่อให้พนักงานทั่วไปวางแผนการใช้จ่ายงบประมาณ<a class="headerlink" href="#export-budget-control-sheet" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Control Sheet</p>
+<ol>
+<li>เลือก Budget Control Sheet ที่ต้องการ เพื่อ Export เอกสารให้พนักงานทั่วไปวางแผนการใช้จ่ายงบประมาณ</li>
+<li>กดปุ่ม "Action"</li>
+<li>
+<p>กดปุ่ม "Export Excel" เพื่อ Export Budget Control Sheet ทั้งหมดที่เลือกในข้อ 1.</p>
+<p><img alt="export" src="../img/3_phasing_plan/export_bcs.png"/></p>
+</li>
+<li>
+<p>ระบบแสดงหน้าต่าง ดังนี้</p>
+<p><img alt="export2" src="../img/3_phasing_plan/export2.png"/></p>
+</li>
+<li>
+<p>หลังจากกด Export ระบบแสดงหน้าต่าง กดที่ "file.zip" เพื่อดาวน์โหลด ไฟล์ Excel Budget Control Sheet ทั้งหมดที่เลือกในข้อ 1</p>
+<p><img alt="export3" src="../img/3_phasing_plan/export3.png"/></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ฝ่ายแผน ส่ง Excel File ให้พนักงานทั่วไปของสสน. วางแผนการใช้จ่าย เมื่อได้รับ Excel File ที่วางแผนการใช้จ่ายงบประมาณเสร็จสิ้น</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>ตัวอย่างการวางแผนใน Excel file</strong>
+<img alt="eg phasing plan" src="../img/3_phasing_plan/eg_phasing.png"/>
+ตรวจสอบยอดรวมของเงินที่วางแผน จะต้องเท่ากับ Released (ยอดเงินที่ใช้ได้ปัจจุบัน)</p>
+</div>
+<h3 id="import-excel-budget-control-sheet">การ Import Excel Budget Control Sheet เข้าระบบ<a class="headerlink" href="#import-excel-budget-control-sheet" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Control Sheet</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เมื่อได้รับ Excel file แผนการใช้จ่ายงบประมาณจากพนักงานทั่วไป ตรวจสอบข้อมูล ความถูกต้อง และเริ่มนำ excel file เข้าระบบ</p>
+</div>
+<p>เลือก Budget Control Sheet ที่ต้องการ Import เข้าระบบ</p>
+<ol>
+<li>กดปุ่ม "Action"</li>
+<li>กดปุ่ม "Import Excel" เพื่อนำไฟล์ excel เข้าระบบ
+    <img alt="import" src="../img/3_phasing_plan/import.png"/></li>
+<li>ระบบแสดงหน้าต่าง ดังนี้<ol>
+<li>กดปุ่ม "Upload your file"</li>
+<li>กดปุ่ม "Import"
+<img alt="import" src="../img/3_phasing_plan/import2.png"/></li>
+</ol>
+</li>
+<li>เมื่อ Import ข้อมูลสำเร็จ ระบบจะแสดงหน้าต่าง กดปุ่ม "Close" เพื่อดูข้อมูลที่หน้า Budget Control Sheet
+    <img alt="import" src="../img/3_phasing_plan/import3.png"/></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>เมื่อ Import สำเร็จ ที่หน้า Budget Control Sheet จะมีข้อมูลเหมือนใน Excel File
+<img alt="eg phasing plan" src="../img/3_phasing_plan/done_import.png"/></p>
+</div>
+<p>เมื่อ Import Excel จนครบทุก Budget Control Sheet เริ่มขั้นตอนจัดเก็บแผนการใช้จ่ายต้นปี (v.0) และส่งอนุมัติแผนการใช้จ่ายต้นปี (v.1)</p>
+<hr/>
+<h2 id="v0-v1">กระบวนการการจัดเก็บแผนการใช้จ่ายต้นปี (v.0) และส่งอนุมัติแผนการใช้จ่ายต้นปี (v.1)<a class="headerlink" href="#v0-v1" title="Permanent link">#</a></h2>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Control Sheet</p>
+<ol>
+<li>กดเพื่อเลือก Budget Control Sheet สถานะ Draft ทั้งหมด</li>
+<li>กดปุ่ม "Action"</li>
+<li>กดปุ่ม "Cancel" จะได้ Budget Control Sheet สถานะ Cancelled
+    <img alt="cancel bcs" src="../img/4_keep_v0/cancel.png"/></li>
+</ol>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Plan</p>
+<ol>
+<li>เลือก Budget Plan (Revision 0) ที่สร้างจาก Budget Allocation ตอนต้นปี สถานะเอกสารอยู่ที่ Done แล้วกดปุ่ม "New Revision" 
+    <img alt="revision 0" src="../img/4_keep_v0/revision0.png"/></li>
+<li>
+<p>ระบบจะสร้าง Budget Plan (Revision 1) สถานะเอกสารอยู่ที่ Draft (เจ้าหน้าที่แผนจะทำรายการต่อไม่ได้จนกว่าจะได้รับการ Verify จากหัวหน้างานยุทธศาสตร์แผนงานและงบประมาณ)</p>
+<ul>
+<li>
+<p>เมื่อได้รับการ Verify เสร็จแล้วระบบจะส่งเอกสารสู่ขั้นตอนการอนุมัติโดย ผสสน.
+    <img alt="verify done" src="../img/4_keep_v0/request_tier.png"/></p>
+</li>
+<li>
+<p>ระบบจะแสดงที่ Tab "Reviews" แสดงลำดับและสถานะการอนุมัติ
+    <img alt="revision 1" src="../img/4_keep_v0/approved_revision1.png"/></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>หากได้รับการอนุมัติแล้ว ระบบจะเปลี่ยนสถานะเอกสารจาก Draft เป็น Confirmed
+<img alt="Approved" src="../img/4_keep_v0/approved.png"/></p>
+</div>
+</li>
+<li>
+<p>หลังจากได้รับการอนุมัติกรอบงบประมาณ กดปุ่ม "Create/Update Budget Control"</p>
+<p><img alt="Create BCS" src="../img/4_keep_v0/create_bcs_v1.png"/></p>
+</li>
+<li>
+<p>ระบบจะเก็บแผนการใช้จ่าย Budget Control Sheet v.0 และสร้าง Budget Control Sheet v.1</p>
+<ol>
+<li>กดเพื่อเลือก Budget Control Sheet ทั้งหมด</li>
+<li>กดปุ่ม "Action"</li>
+<li>กดปุ่ม "Control" เพื่อเริ่มการใช้จ่ายงบประมาณ
+<img alt="Create BCS" src="../img/4_keep_v0/control_v1.png"/></li>
+</ol>
+</li>
+<li>
+<p>หลังจาก "Control" Budget Control Sheet Revision 1 เสร็จสิ้น </p>
+</li>
+<li>กลับมาที่ <strong>Menu ::</strong> Budget Plan กดปุ่ม "Done" เพื่อเปลี่ยนสถานะเอกสารจาก Confirmed เป็น Done เพื่อสิ้นสุดการทำงานของฝ่ายแผน</li>
+</ol>
+<hr/>
+<h2 id="_2">กระบวนการปรับแผน<a class="headerlink" href="#_2" title="Permanent link">#</a></h2>
+<p>กระบวนการปรับแผนในระบบ จะทำการปรับกรอบงบประมาณของทั้งระบบให้เป็นไปตามกรอบงบประมาณใหม่ที่ต้องการจัดสรร</p>
+<h3 id="budget-revision-monitoring">รายงาน Budget Revision Monitoring<a class="headerlink" href="#budget-revision-monitoring" title="Permanent link">#</a></h3>
+<p>สามารถดูรายงานที่ <strong>Menu ::</strong> Budgeting &gt; Reporting &gt; Budget Revision Monitoring</p>
+<p><img alt="" src="../img/6_budget_revision/revision_monitoring.png"/></p>
+<h3 id="_3">ขั้นตอนการปรับแผนงบประมาณ<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Plan</p>
+<ol>
+<li>
+<p>เลือกเอกสาร Budget Plan Version ปัจจุบัน
+    <img alt="" src="../img/6_budget_revision/revision.png"/></p>
+</li>
+<li>
+<p>เอกสารจะแสดง Revision ปัจจุบันอยู่ที่ 1 และสถานะเอกสารอยู่ที่ Done กดปุ่ม "New Revision"
+    <img alt="" src="../img/6_budget_revision/new_revision.png"/></p>
+</li>
+<li>
+<p>ระบบสร้าง Budget Plan Version ใหม่
+    <img alt="" src="../img/6_budget_revision/new_revision2.png"/></p>
+</li>
+<li>
+<p>ไปที่ <strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Allocation เพื่อแก้ไขกรอบงบประมาณใหม่ตามกรอบงบประมาณที่ได้รับการอนุมัติจากการประชุม หลังจากนั้น กดปุ่ม "Reset to draft" เพื่อเริ่มแก้ไขกรอบงบประมาณ
+    <img alt="" src="../img/6_budget_revision/budget_allocation.png"/></p>
+</li>
+<li>
+<p>เริ่มการแก้ไขกรอบงบประมาณ</p>
+<ol>
+<li>กดปุ่ม "Edit"</li>
+<li>Release: แสดงกรอบงบประมาณปัจจุบัน ที่เปลี่ยนแปลงตามการโอนงบประมาณ</li>
+<li>Allocate: <em>แก้ไขกรอบงบประมาณใหม่</em> ที่ต้องการปรับแผน</li>
+<li>ในกรณีที่ต้องการเพิ่มโครงการ สามารถกดปุ่ม "Add a line" และเริ่มแจกกรอบเพิ่มเติม
+<img alt="" src="../img/6_budget_revision/edit_allocation.png"/></li>
+</ol>
+</li>
+<li>
+<p>กด "Save" เพื่อบันทึกข้อมูล หากถูกต้องครบถ้วน กด "Done" สถานะเอกสารเปลี่ยนจาก Draft เป็น Done </p>
+</li>
+<li>
+<p>กลับมาที่ <strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Plan</p>
+<ul>
+<li>กดปุ่ม "Generate Plan"
+<img alt="" src="../img/6_budget_revision/generate_plan.png"/></li>
+<li>ระบบจะอัพเดตข้อมูลกรอบงบประมาณใหม่ที่แก้ไขในหน้า Budget Allocaiton<ul>
+<li>ถูกต้องครบถ้วน สถานะเอกสารอยู่ที่ To verify แจ้งหัวหน้างานยุทธศาสตร์แผนงานและงบประมาณเพื่อทำการ Verify และส่งอนุมัติ</li>
+<li>หากต้องการแก้ไข จะต้องการไปแก้ที่หน้า Budget Allocation ตามข้อ 4-6
+<img alt="" src="../img/6_budget_revision/to_verify.png"/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>เมื่อได้รับการอนุมัติ เรียบร้อยแล้ว</p>
+<ul>
+<li>
+<p>ไปที่ <strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Control Sheet</p>
+<ol>
+<li>เลือก Budget Control Sheet ทั้งหมด</li>
+<li>กดปุ่ม "Action"</li>
+<li>กดปุ่ม "Cancel" เพื่อหยุดการใช้งบประมาณ Version ปัจจุบัน
+<img alt="" src="../img/6_budget_revision/Selection_357.png"/></li>
+</ol>
+</li>
+<li>
+<p>ไปที่ <strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Plan</p>
+</li>
+<li>สถานะเอกสารจะเปลี่ยนจาก Draft เป็น Confirmed</li>
+<li>กดปุ่ม "Create/Update Budget Control" เพื่อสร้าง Budget Control Sheet Version ใหม่
+    <img alt="" src="../img/6_budget_revision/Selection_356.png"/></li>
+</ul>
+</li>
+<li>
+<p>ระบบแสดงหน้าต่าง</p>
+<ol>
+<li>หากมีโครงการเพิ่มขึ้น ระบบจะแสดงการสร้าง Budget Control Sheet</li>
+<li>แสดงการอัพเดต Budget Control Sheet Version ใหม่
+<img alt="" src="../img/6_budget_revision/Selection_358.png"/></li>
+</ol>
+</li>
+<li>
+<p>กดปุ่ม "Done" เพื่อสิ้นสุดการปรับแผน สถานะเอกสารเปลี่ยนจาก Confirmed เป็น Done</p>
+<p><img alt="" src="../img/6_budget_revision/Selection_359.png"/></p>
+</li>
+</ol>
+<h4 id="analytic-account-extend">การขยายเวลา Analytic Account ที่ถูก Extend<a class="headerlink" href="#analytic-account-extend" title="Permanent link">#</a></h4>
+<div class="admonition tip">
+<p class="admonition-title">สำหรับ Use Cases</p>
+<ul>
+<li>(2) การขยายเวลาดำเนินโครงการ Analytic Account ที่ถูก Extend</li>
+</ul>
+</div>
+<p>กรณีที่ต้องการขยายเวลาการดำเนินโครงการของ Analytic Account ที่ Extend หลังขั้นตอนการปิดปีงบประมาณ</p>
+<p><strong>Menu ::</strong> Budgeting &gt; Configuration &gt; Analytic Accounts</p>
+<ol>
+<li>
+<p>เลือก Analytic Accounts ที่ต้องการขยายเวลา</p>
+<ol>
+<li>กดปุ่ม "Edit"</li>
+<li>ขยายระยะเวลาที่ช่อง Date to
+   <img alt="" src="../img/6_budget_revision/extend.png"/></li>
+</ol>
+</li>
+<li>
+<p>ตรวจสอบข้อมูล ถูกต้องครบถ้วน กดปุ่ม "Save" เพื่อบันทึกข้อมูล</p>
+</li>
+</ol>
+<hr/>
+<h2 id="_4">กระบวนการปิดปีและยกยอดงบประมาณ<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
+<p>ขั้นตอนการทำกระบวนการปิดปีและยกยอดงบประมาณ มีดังนี้</p>
+<ol>
+<li>หยุดการใช้งบประมาณบนระบบ</li>
+<li>การสร้างเอกสาร Budget Carry Forward</li>
+<li>ตรวจสอบข้อมูลเอกสาร Budget Carry Forward และยกยอดงบประมาณ</li>
+</ol>
+<h3 id="_5">การหยุดใช้งบประมาณบนระบบ<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<p>เข้าระบบเพื่อหยุดการใช้งบประมาณทั้งหมด โดยทำตามขั้นตอน ดังนี้</p>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Control Sheet</p>
+<ol>
+<li>เข้าไปที่หน้า Budget Control Sheet และเลือก Budget Control Sheet ทั้งหมด</li>
+<li>กดปุ่ม "Action" </li>
+<li>กดปุ่ม "Cancel" เพื่อเปลี่ยนสถานะเอกสารเป็น Cancel เพื่อหยุดการใช้งบประมาณ</li>
+</ol>
+<p><img alt="" src="../img/7_budget_carry_forward/cancel_budget_control.png"/></p>
+<h3 id="budget-carry-forward">การสร้างเอกสาร Budget Carry Forward<a class="headerlink" href="#budget-carry-forward" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Carry Forward</p>
+<ol>
+<li>
+<p>กดปุ่ม "Create" เพื่อสร้างเอกสาร
+    <img alt="" src="../img/7_budget_carry_forward/create.png"/></p>
+</li>
+<li>
+<p>กรอกข้อมูลในเอกสาร Budget Carry Forward </p>
+<ol>
+<li>Name: ชื่อเอกสาร</li>
+<li>To Budget Period: ปีงบประมาณที่ต้องการยกยอดไป</li>
+<li>Method: วิธีการยกยอด<ul>
+<li>Extend: ขยายเวลาการใช้จ่ายงบประมาณ</li>
+<li>New Analytic: ยกยอดไป Analytic Account ใหม่</li>
+</ul>
+</li>
+<li>Accumulated Analytic Account: Analytic Account สำหรับเก็บเงินสะสม</li>
+</ol>
+<p><img alt="" src="../img/7_budget_carry_forward/carry_forward.png"/></p>
+</li>
+<li>
+<p>ตรวจสอบข้อมูล</p>
+<ul>
+<li>หากถูกต้องครบถ้วนกดปุ่ม "Save"</li>
+<li>หากต้องการแก้ไขกดปุ่ม "Edit"</li>
+</ul>
+</li>
+</ol>
+<p>การยกยอดข้ามปี แบ่งออกเป็น 2 แบบ ดังนี้</p>
+<ol>
+<li>ยกยอด Commitment</li>
+<li>ยกยอด เงินคงเหลือ</li>
+</ol>
+<p>ซึ่งในแต่ละแบบมีขั้นตอนการทำงาน ดังนี้</p>
+<h4 id="1-commitment">1. ยกยอด Commitment<a class="headerlink" href="#1-commitment" title="Permanent link">#</a></h4>
+<p>การยกยอด Commitment คือ การยกยอดค่าใช้จ่ายที่มีการของบประมาณไปแล้ว แต่ยังไม่ได้จ่ายจริง</p>
+<ol>
+<li>ไปที่ Tab ของเอกสารที่ต้องการยกยอด<ul>
+<li>Purchase Request</li>
+<li>Purchase</li>
+<li>Advance</li>
+<li>Expense</li>
+</ul>
+</li>
+<li>กดปุ่ม List purchase request commitment (ชื่อปุ่มจะเปลี่ยนตาม Tab ที่เลือก)</li>
+<li>
+<p>ระบบจะดึงข้อมูลค่าใช้จ่ายที่มีการจองงบประมาณไปแล้ว แต่ยังไม่ได้จ่ายจริงมาแสดง</p>
+<p><img alt="" src="../img/7_budget_carry_forward/carry_forward_commitment.png"/></p>
+</li>
+<li>
+<p>ทำข้อ 1-3 จนครบทุก Tab</p>
+</li>
+<li>ตรวจสอบข้อมูล<ul>
+<li>หากถูกต้องครบถ้วนกดปุ่ม "Save"</li>
+<li>หากต้องการแก้ไข กดปุ่ม "Edit"</li>
+</ul>
+</li>
+</ol>
+<h4 id="2">2. ยกยอด เงินคงเหลือ<a class="headerlink" href="#2" title="Permanent link">#</a></h4>
+<p>การยกยอดเงินคงเหลือ คือ การยกยอดงบประมาณที่ไม่มีการขอใช้</p>
+<ol>
+<li>ไปที่ Tab Available</li>
+<li>กดปุ่ม List analytic account</li>
+<li>
+<p>ระบบจะดึงข้อมูล Analytic Account ที่มีเงินคงเหลือมาแสดง</p>
+<p><img alt="" src="../img/7_budget_carry_forward/carry_forward_available.png"/></p>
+</li>
+<li>
+<p>กดปุ่ม "Edit" เพื่อแก้ไขข้อมูล</p>
+<ol>
+<li>Analytic Account</li>
+<li>Method: วิธีการยกยอด<ul>
+<li>Extend: ขยายเวลาการใช้จ่ายงบประมาณ</li>
+<li>New Analytic: ยกยอดไป Analytic Account ใหม่</li>
+</ul>
+</li>
+<li>Extend Date: วันที่ต้องการขยาย</li>
+<li>Available: ยอดเงินคงเหลือของ Analytic Account</li>
+<li>Carry Forward Analytic Account: Analytic Account ที่ต้องการยกยอดไปไว้ใช้จ่าย</li>
+<li>Carry Forward Amount: ยอดเงินที่ต้องการยกยอดไปไว้ใช้จ่าย</li>
+<li>Accumulate Analytic Account: Analytic Account ที่ต้องการยกยอดไปเก็บสะสม</li>
+<li>Accumulated Amount: ยอดเงินที่ต้องการยกยอดไปเก็บสะสม</li>
+</ol>
+<p><img alt="" src="../img/7_budget_carry_forward/carry_forward_available_line.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">ตัวอย่างการยกยอดงบประมาณ</p>
+<ol>
+<li>การยกยอดโครงการที่มีระยะเวลาดำเนินโครงการมากกว่า 1 ปี โดยยกเงินคงเหลือไปทำโครงการต่อในปีถัดไป</li>
+<li>การขยายระยะเวลาการดำเนินโครงการ</li>
+<li>การยกเงินคงเหลือทั้งหมดไปเก็บที่ Analytic Account เงินสะสม โดยที่ไม่มีการดำเนินโครงการต่อในปีงบประมาณถัดไป
+<img alt="" src="../img/7_budget_carry_forward/eg.png"/></li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>ในแต่ละบรรทัดระบบจะดึง default ของ Method กับ Accumulate Analytic Account จากด้านบนเอกสาร</li>
+<li>ถ้าเลือก Method เป็น Extend ไม่ต้องเลือก Carry Forward Analytic Account แต่ถ้าเลือก Method เป็น New Analytic ต้องเลือก Carry Forward Analytic Account</li>
+</ul>
+</div>
+</li>
+<li>
+<p>ตรวจสอบข้อมูล</p>
+<ul>
+<li>หากถูกต้องครบถ้วนกดปุ่ม "Save"</li>
+<li>หากต้องการแก้ไข กดปุ่ม "Edit"</li>
+</ul>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>กรณีเลือก Method เป็น New Analytic แล้วต้องการให้ระบบช่วยใส่ Carry Forward Analytic Account ให้สามารถใช้การกดปุ่ม "Prepare carry forward analytic account" ได้
+<img alt="" src="../img/7_budget_carry_forward/prepare_aa.png"/></p>
+</div>
+<h3 id="budget-carry-forward_1">การตรวจสอบข้อมูลเอกสาร Budget Carry Forward และยกยอดงบประมาณ<a class="headerlink" href="#budget-carry-forward_1" title="Permanent link">#</a></h3>
+<p><strong>Menu ::</strong> Budgeting &gt; Budgeting &gt; Budget Carry Forward</p>
+<p>หลังจากผ่านการ Verify จากหัวหน้างานยุทธศาสตร์แผนงานและงบประมาณ สถานะเอกสารเปลี่ยนจาก To Verify เป็น Verify
+    <img alt="" src="../img/7_budget_carry_forward/state_verify.png"/>
+ทำการยกยอดงบประมาณต่อ ดังนี้</p>
+<ol>
+<li>เลือกเอกสาร Budget Carry Forward ที่ต้องการ</li>
+<li>กดปุ่ม "Carry Budget Forward"
+    <img alt="" src="../img/7_budget_carry_forward/carry_budget_forward.png"/></li>
+<li>ระบบแสดงหน้าต่างให้ตรวจสอบตัวเลขการยกยอดงบประมาณอีกครั้ง<ol>
+<li>หากถูกต้องครบถ้วน กดปุ่ม "Carry Budget Forward" เพื่อยกยอดงบประมาณ</li>
+<li>หากต้องการแก้ไข กดปุ่ม "Cancel"
+<img alt="" src="../img/7_budget_carry_forward/preview.png"/></li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">การดูรายงานหลังจากทำ Budget Carry Forward เสร็จสิ้น</p>
+<ol>
+<li>รายละเอียดแสดง Commitment ทั้งหมด สามารถดูได้ที่ Budget Monitoring
+<img alt="" src="../img/7_budget_carry_forward/monitoring.png"/></li>
+<li>ยอดรวมทั้งหมดที่ยกไปในปีงบประมาณถัดไป สามารถดูได้ที่หน้า Analytic Account ที่คอมลัมน์ Initial Amount จะแสดงถึง ยอดคงเหลือยกมา และ Commitment
+<img alt="" src="../img/7_budget_carry_forward/analytic_account.png"/></li>
+</ol>
+</div>
+</div>
+</div>
+<footer>
+<div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../bg5_for_approver/" title="Budget Approver">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral" href="../bg3_for_user/" title="Budget User"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+<p>Copyright © 2021 Ecosoft Co., Ltd.</p>
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/ecosoft-odoo/eco_mkdocs/" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../bg3_for_user/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../bg5_for_approver/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '../../..';</script>
+<script defer="" src="../../../js/theme_extra.js"></script>
+<script defer="" src="../../../js/theme.js"></script>
+<script defer="" src="../../../search/main.js"></script>
+<script defer="">
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+</body>
+</html>
